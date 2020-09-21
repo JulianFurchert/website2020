@@ -17,10 +17,9 @@ const Animation = () => {
       css={{
         position: 'relative',
         overflow: 'hidden',
-        color: 'black',
         transition: 'color 0.15s ease, border-color 0.15s ease',
         '&:hover': {
-          color: 'primary'
+          color: '$primary'
         }
       }}
     >

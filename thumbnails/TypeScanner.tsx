@@ -39,7 +39,7 @@ const Animation: React.FC = () => {
       color: 'black',
       transition: 'color 0.15s ease, border-color 0.15s ease',
       '&:hover': {
-        color: 'primary'
+        color: '$primary'
       }
     }}>
     <svg viewBox="0 0 640 420" width="100%">

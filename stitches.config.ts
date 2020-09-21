@@ -1,5 +1,14 @@
 import { createStyled } from '@stitches/react'
 
+const baseColors = {
+  blue: '#007aff',
+  green: '#34c759',
+  indigo: '#5856d6',
+  orange: '#ff9501',
+  pink: '#ff2d55',
+  purple: '#af52de',
+}
+
 const theme = {
   colors: {
     $hiContrast: 'hsl(206,10%,5%)',
@@ -18,6 +27,8 @@ const theme = {
     $purple400: 'hsl(252,75%,84%)',
     $purple500: 'hsl(252,78%,60%)',
     $purple600: 'hsl(252,80%,53%)',
+
+    $primary: baseColors.indigo,
   },
   space: {
     $1: '5px',

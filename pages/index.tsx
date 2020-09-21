@@ -29,31 +29,63 @@ export default function Home() {
             Hi, I’m Julian Furchert, a designer and developer based in Düsseldorf. Specializing in user interface design and typography. Furthermore, I‘m working on experimental tools and custom design applications.
           </Text>
         </Box>
-        <Box css={{marginTop: 200}}>
+        <Box css={{marginTop: 100}}>
           <Text variant="headline2">
             Projects
           </Text>
           <Grid>
-            <Card>
+            <Card variant="preview">
               <TypeScanner />
             </Card>
-            <Card>
+            <Card variant="preview">
               <Framo />
             </Card>
-            <Card>
+            <Card variant="preview">
               <PrettyPaper />
             </Card>
-            <Card>
+            <Card variant="preview">
               <Theves />
             </Card>
-            <Card>
+            <Card variant="preview">
               <TypeScanner />
             </Card>
-            <Card>
+            <Card variant="preview">
               <ReproFont />
             </Card>
           </Grid>
         </Box>
+        <Box css={{marginTop: 100}}>
+          <Text variant="headline2">
+            Digital Garden
+          </Text>
+          <Grid>
+          <Card as="a" href="https://www.google.de/">
+              <Text css={{fontWeight: '$heading'}}>
+                Tools I use
+              </Text>
+              <Text>
+                Updated 3 weeks ago
+              </Text>
+            </Card>
+            <Card as="a" href="https://www.google.de/">
+              <Text css={{fontWeight: '$heading'}}>
+                Design Systems
+              </Text>
+              <Text>
+                Updated 4 weeks ago
+              </Text>
+            </Card>
+            <Card as="a" href="https://www.google.de/">
+              <Text css={{fontWeight: '$heading'}}>
+                Gatsby
+              </Text>
+              <Text>
+                Updated 5 weeks ago
+              </Text>
+            </Card>
+          </Grid>
+        </Box>
+        <Box css={{height: 400}} />
       </Container>
     </Box>
   )

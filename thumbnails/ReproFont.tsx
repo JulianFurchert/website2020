@@ -36,14 +36,14 @@ export const Example = () => {
         position: 'relative',
         overflow: 'hidden',
         color: 'black',
-        transition: 'color 0.15s ease, border-color 0.15s ease',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         height: '100%',
         width: '100%',
+        transition: 'color 0.15s ease, border-color 0.15s ease',
         '&:hover': {
-          color: 'primary'
+          color: '$primary'
         }
       }}
     >

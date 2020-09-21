@@ -2,7 +2,7 @@ import { styled } from '../stitches.config'
 
 const Text = styled('p', {
   fontFamily: '$body',
-  color: '$hiContrast',
+  color: 'inherit',
   lineHeight: 1.5,
   maxWidth: 900,
   variants: {
@@ -20,7 +20,6 @@ const Text = styled('p', {
       bodyLarge: {
         fontSize: '$6',
         fontWeight: '$body',
-        color: '#212121'
       },
       body: {
         fontSize: '$3',
