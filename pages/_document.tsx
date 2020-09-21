@@ -1,7 +1,6 @@
 import React from 'react'
 import NextDocument, { DocumentContext } from 'next/document'
 import { css } from '../stitches.config'
-
 export default class Document extends NextDocument {
   static async getInitialProps(ctx: DocumentContext) {
     const originalRenderPage = ctx.renderPage

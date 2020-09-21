@@ -1,7 +1,7 @@
 import { styled } from '../stitches.config'
 
 const Link = styled('a', {
-  fontFamily: '$system',
+  fontFamily: '$body',
   textDecoration: 'none',
   color: '$purple600',
 })

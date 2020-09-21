@@ -45,7 +45,12 @@ const theme = {
     $7: '45px',
   },
   fonts: {
-    $system: 'system-ui',
+    $body: '"Inter",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif',
+    $monospace: '"SFMono-Regular","Consolas","Liberation Mono","Menlo",monospace',
+  },
+  fontWeights: {
+    $body: '400',
+    $heading: '600',
   },
 }
 

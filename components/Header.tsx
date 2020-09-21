@@ -15,11 +15,12 @@ export default Header
 const Container = styled('div', {
   position: 'sticky',
   top: 0,
-  backgroundColor: 'white',
-  height: 75,
+  backgroundColor: 'rgba(255,255,255,0.8)',
+  height: 60,
   display: 'flex',
-  textAlign: 'center',
   justifyContent: 'space-between',
+  alignItems: 'center',
   zIndex: 200,
-  paddingX: '$6'
+  paddingX: '$6',
+  backdropFilter: 'saturate(1.8) blur(20px);'
 })

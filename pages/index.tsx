@@ -22,7 +22,7 @@ export default function Home() {
       <Header />
       <Container>
         <Box css={{marginTop: 100}}>
-          <Text variant="headline">
+          <Text variant="headline" css={{marginBottom: 20}}>
             Julian Furchert
           </Text>
           <Text variant="bodyLarge">
