@@ -53,7 +53,7 @@ const theme = {
     $4: '17px',
     $5: '19px',
     $6: '21px',
-    $7: '45px',
+    $7: '43px',
   },
   fonts: {
     $body: '"Inter",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif',

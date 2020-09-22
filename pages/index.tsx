@@ -1,9 +1,8 @@
-import Head from 'next/head'
 import Box from '../components/Box'
 import Text from '../components/Text'
 import Grid from '../components/Grid'
-import Header from '../components/Header'
 import Card from '../components/Card'
+import Layout from '../components/Layout'
 import Container from '../components/Container'
 
 import TypeScanner from '../thumbnails/TypeScanner'
@@ -15,13 +14,9 @@ import ReproFont from '../thumbnails/ReproFont'
 
 export default function Home() {
   return (
-    <Box>
-      <Head>
-        <title>Julian Furchert</title>
-      </Head>
-      <Header />
+    <Layout>
       <Container>
-        <Box css={{marginTop: 100}}>
+        <Box>
           <Text variant="headline" css={{marginBottom: 20}}>
             Julian Furchert
           </Text>
@@ -87,6 +82,6 @@ export default function Home() {
         </Box>
         <Box css={{height: 400}} />
       </Container>
-    </Box>
+    </Layout>
   )
 }

@@ -1,12 +1,29 @@
+import React from 'react'
 import { styled } from '../stitches.config'
 import Text from './Text'
+import Menu from './Menu'
+import TextButton from './TextButton'
 
-const Header = () => {
+const Header: React.FC = () => {
+  const [showMenu, setShowMenu] = React.useState(false);
+  const open = () => setShowMenu(true);
+  const close = () => setShowMenu(false);
+
   return(
-    <Container>
-      <Text>Julian Furchert</Text>
-      <Text>Menu</Text>
-    </Container>
+    <React.Fragment>
+      <Container>
+        <Text>
+          Julian Furchert
+        </Text>
+        <TextButton onClick={open}>
+          Menu
+        </TextButton>
+      </Container>
+      <Menu 
+        isOpen={showMenu} 
+        onDismiss={close}  
+      />
+    </React.Fragment>
   )
 }
 
