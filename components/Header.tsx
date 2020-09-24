@@ -1,13 +1,12 @@
 import React from 'react'
+import { useOverlayTriggerState } from "@react-stately/overlays";
 import { styled } from '../stitches.config'
 import Text from './Text'
-import Menu from './Menu'
+import Menu from './MenuDialog'
 import TextButton from './TextButton'
 
 const Header: React.FC = () => {
-  const [showMenu, setShowMenu] = React.useState(false);
-  const open = () => setShowMenu(true);
-  const close = () => setShowMenu(false);
+  let state = useOverlayTriggerState({});
 
   return(
     <React.Fragment>
@@ -15,14 +14,13 @@ const Header: React.FC = () => {
         <Text>
           Julian Furchert
         </Text>
-        <TextButton onClick={open}>
+        <TextButton onPress={state.open}>
           Menu
         </TextButton>
       </Container>
-      <Menu 
-        isOpen={showMenu} 
-        onDismiss={close}  
-      />
+      {state.isOpen && (
+        <Menu onClose={state.close} />
+      )}
     </React.Fragment>
   )
 }

@@ -1,117 +1,85 @@
-import React from 'react';
-import Link from 'next/link'
-import { DialogOverlayProps, DialogOverlay, DialogContent } from "@reach/dialog";
-import { X, Coffee, Archive, Sun, Book } from 'react-feather';
+import React from "react";
 import { styled } from '../stitches.config'
-import IconButton from './IconButton';
-import Text from './Text';
 
-const Menu: React.FC<DialogOverlayProps> = props => {
-  return(
-    <Overlay {...props}>
-      <Dialog aria-label="menu">
-        <Header>
-          <IconButton onClick={props.onDismiss}>
-            <X />
-          </IconButton>
-        </Header>
-        <Content>
-          <MenuList>
-            <MenuItem
-              icon={<Coffee />}
-              label="Overview"
-              href="/"
-            />
-            <MenuItem
-              icon={<Archive />}
-              label="Projects Archiv"
-              href="/projects-archiv"
-            />
-            <MenuItem
-              icon={<Book />}
-              label="Experience"
-              href="/experience"
-            />
-            <MenuItem
-              icon={<Sun />}
-              label="Digital Garden"
-              href="/digital-garden"
-            />
-          </MenuList>
-        </Content>
-      </Dialog>
-    </Overlay>
-  )
+import { useMenu, useMenuItem } from "@react-aria/menu";
+import { AriaMenuProps } from "@react-types/menu";
+import { Node } from "@react-types/shared";
+import { Item } from "@react-stately/collections";
+import { useTreeState, TreeState } from "@react-stately/tree";
+import { useFocus } from "@react-aria/interactions";
+import { mergeProps } from "@react-aria/utils";
+
+function Menu<T extends object>(props: AriaMenuProps<T>) {
+  let state = useTreeState({ ...props, selectionMode: "none" });
+  let ref = React.useRef<HTMLUListElement>(null);
+  let { menuProps } = useMenu(props, state, ref);
+
+  return (
+    <StyledList {...menuProps} ref={ref}>
+      {[...state.collection].map((item) => (
+        <MenuItem
+          key={item.key}
+          item={item}
+          state={state}
+          onAction={props.onAction}
+        />
+      ))}
+    </StyledList>
+  );
 }
 
-type MenuItemProps = {
-  label: string,
-  icon: any,
-  href: string
+interface MenuItemProps<T> {
+  item: Node<T>;
+  state: TreeState<T>;
+  onAction?: (key: React.Key) => void;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({icon, label, href}) => {
-  return(
-    <Item>
-      <Link href={href} passHref>
-        <ItemLink>
-          {icon}
-          <Text css={{ marginLeft: '$4' }}>
-            {label}
-          </Text>
-        </ItemLink>
-      </Link>
-    </Item>
-  )
+export function MenuItem<T>({ item, state, onAction }: MenuItemProps<T>) {
+  // Get props for the menu item element
+  let ref = React.useRef<HTMLLIElement>(null);
+  let { menuItemProps } = useMenuItem(
+    {
+      key: item.key,
+      onAction
+      //isDisabled: item.isDisabled,
+    },
+    state,
+    ref
+  );
+
+  // Handle focus events so we can apply highlighted
+  // style to the focused menu item
+  let [isFocused, setFocused] = React.useState(false);
+  let { focusProps } = useFocus({ onFocusChange: setFocused });
+
+  return (
+    <StyledItem
+      {...mergeProps(menuItemProps, focusProps)}
+      data-focused={isFocused ? true : undefined}
+      ref={ref}
+    >
+      {item.rendered}
+    </StyledItem>
+  );
 }
 
-const Overlay = styled(DialogOverlay, ({
-  zIndex: 1000,
-  background: 'rgba(30, 30, 30, 0.95)',
-  position: 'fixed',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  top: 0,
-  right: 0,
-  bottom: 0,
-  left: 0,
-  overflow: 'auto',
-}))
-
-const Dialog = styled(DialogContent, ({
-  zIndex: 1000,
-  width: '50vw',
-  background: 'white',
-  outline: 'none',
-  borderRadius: 12,
-}))
-
-const Header = styled('div', ({
-  paddingY: '$3',
-  paddingX: '$4',
-  display: 'flex',
-  justifyContent: 'flex-end',
-  borderBottom: '1px solid',
-  borderColor: '$gray500'
-}))
-
-const Content = styled('div', ({
-  padding: '0',
-}))
-
-const MenuList = styled('ul', ({
+const StyledList = styled('ul', ({
   paddingY: '$2',
 }))
 
-const Item = styled('li', ({}))
-
-const ItemLink = styled('a', ({
+const StyledItem = styled('li', ({
   display: 'flex',
   paddingY: '$3',
   paddingX: '$6',
   color: 'inherit',
-  textDecoration: 'inherit'
+  textDecoration: 'inherit',
+  '&[data-focused]':{
+    backgroundColor: '$gray300'
+  },
+  '&:focus': {
+    outline: 'none',
+    border: 'none'
+  }
 }))
 
-export default Menu
+export { Menu, Item };
