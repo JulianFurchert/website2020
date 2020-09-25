@@ -1,6 +1,6 @@
 import { styled } from '../stitches.config'
 
-const Thumbnail = styled('div', {
+export const Thumbnail = styled('div', {
   position: 'relative',
   width: 640, 
   height: 420, 

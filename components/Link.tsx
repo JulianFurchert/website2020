@@ -1,6 +1,6 @@
 import { styled } from '../stitches.config'
 
-const Link = styled('a', {
+export const Link = styled('a', {
   fontFamily: '$body',
   textDecoration: 'none',
   color: '$purple600',

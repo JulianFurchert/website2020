@@ -1,6 +1,6 @@
 import { styled } from '../stitches.config'
 
-const Card = styled('div', {
+export const Card = styled('div', {
   textAlign: 'left',
   color: 'inherit',
   textDecoration: 'none',

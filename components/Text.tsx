@@ -1,6 +1,6 @@
 import { styled } from '../stitches.config'
 
-const Text = styled('p', {
+export const Text = styled('p', {
   fontFamily: '$body',
   color: 'inherit',
   lineHeight: 1.5,

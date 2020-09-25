@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Box from './Box'
 import Header from './Header'
 
-const Layout: React.FC = ({ children }) => {
+export const Layout: React.FC = ({ children }) => {
   return (
     <Box>
       <Head>

@@ -3,7 +3,7 @@ import { useButton } from '@react-aria/button';
 import { AriaButtonProps } from '@react-types/button';
 import { styled } from '../stitches.config'
 
-const BaseButton: React.FC<AriaButtonProps> = (props) => {
+export const BaseButton: React.FC<AriaButtonProps> = (props) => {
   let ref = React.useRef<HTMLButtonElement>(null);
   let {buttonProps} = useButton(props, ref);
 
@@ -14,7 +14,7 @@ const BaseButton: React.FC<AriaButtonProps> = (props) => {
   );
 }
 
-const StyledButton = styled('button', {
+ const StyledButton = styled('button', {
   border: 'none',
   margin: 0,
   padding: 0,

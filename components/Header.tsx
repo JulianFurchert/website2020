@@ -5,7 +5,7 @@ import Text from './Text'
 import Menu from './MenuDialog'
 import TextButton from './TextButton'
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
   let state = useOverlayTriggerState({});
 
   return(

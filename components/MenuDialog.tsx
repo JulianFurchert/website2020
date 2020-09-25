@@ -9,7 +9,7 @@ import { OverlayContainer } from "@react-aria/overlays";
 import IconButton from './IconButton';
 import Text from './Text';
 
-const MenuDialog: React.FC<{onClose: () => void}> = ({ onClose }) => {
+export const MenuDialog: React.FC<{onClose: () => void}> = ({ onClose }) => {
   const router = useRouter()
   const { pathname } = router;
 

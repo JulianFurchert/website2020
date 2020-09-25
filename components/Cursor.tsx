@@ -12,7 +12,7 @@ type Props = SvgProps & {
     'ns-resize'
 }
 
-const Cursor: React.FC<Props> = ({ variant, ...props }) => {
+export const Cursor: React.FC<Props> = ({ variant, ...props }) => {
   switch(variant){
     case 'zoom-in':
       return <Zoomin {...props} />

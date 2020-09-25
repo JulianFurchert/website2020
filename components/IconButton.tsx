@@ -1,7 +1,7 @@
 import { styled } from '../stitches.config'
 import BaseButton from './BaseButton'
 
-const IconButton = styled(BaseButton, {
+export const IconButton = styled(BaseButton, {
   '& svg': {
     display: 'block',
     color: '$gray600'
