@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import Box from '../components/Box'
 import Text from '../components/Text'
 import Grid from '../components/Grid'
@@ -29,24 +31,36 @@ export default function Home() {
             Projects
           </Text>
           <Grid>
-            <Card variant="preview">
-              <TypeScanner />
-            </Card>
-            <Card variant="preview">
-              <Framo />
-            </Card>
-            <Card variant="preview">
-              <PrettyPaper />
-            </Card>
-            <Card variant="preview">
-              <Theves />
-            </Card>
-            <Card variant="preview">
-              <TypeScanner />
-            </Card>
-            <Card variant="preview">
-              <ReproFont />
-            </Card>
+            <Link href="/projects/typescanner" passHref>
+              <Card as="a" variant="preview">
+                <TypeScanner />
+              </Card>
+            </Link>
+            <Link href="/projects/typescanner" passHref>
+              <Card variant="preview">
+                <Framo />
+              </Card>
+            </Link>
+            <Link href="/projects/typescanner" passHref>
+              <Card variant="preview">
+                <PrettyPaper />
+              </Card>
+            </Link>
+            <Link href="/projects/typescanner" passHref>
+              <Card variant="preview">
+                <Theves />
+              </Card>
+            </Link>
+            <Link href="/projects/typescanner" passHref>
+              <Card variant="preview">
+                <TypeScanner />
+              </Card>
+            </Link>
+            <Link href="/projects/typescanner" passHref>
+              <Card variant="preview">
+                <ReproFont />
+              </Card>
+            </Link>
           </Grid>
         </Box>
         <Box css={{marginTop: 100}}>
