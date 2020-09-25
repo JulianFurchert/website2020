@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "@popmotion/popcorn": "^0.4.4",
-    "@reach/dialog": "^0.11.2",
     "@react-aria/button": "^3.2.1",
     "@react-aria/dialog": "^3.1.1",
     "@react-aria/menu": "^3.1.1",
@@ -20,8 +19,7 @@
     "next": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-feather": "^2.0.8",
-    "reakit": "^1.2.4"
+    "react-feather": "^2.0.8"
   },
   "devDependencies": {
     "@types/react": "^16.9.43",
