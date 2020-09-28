@@ -56,11 +56,11 @@ export default function Home() {
                 <TypeScanner />
               </Card>
             </Link>
-            <Link href="/projects/typescanner" passHref>
+            {/* <Link href="/projects/typescanner" passHref> */}
               <Card variant="preview">
                 <ReproFont />
               </Card>
-            </Link>
+            {/* </Link> */}
           </Grid>
         </Box>
         <Box css={{marginTop: 100}}>

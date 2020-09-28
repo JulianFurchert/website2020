@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from "framer-motion"
-import Cursor from "../components/Cursor"
-import Box from "../components/Box"
+import { Thumbnail } from "../components"
 
 const Animation: React.FC = () => {
   const [index, setIndex] = useState(0);
@@ -33,51 +32,34 @@ const Animation: React.FC = () => {
   }, [index])
 
   return(
-    <Box css={{
-      position: 'relative',
-      overflow: 'hidden',
-      color: 'black',
-      transition: 'color 0.15s ease, border-color 0.15s ease',
-      '&:hover': {
-        color: '$primary'
-      }
-    }}>
-    <svg viewBox="0 0 640 420" width="100%">
-      {gridIndex === 0 && <GridGroup1 />}
-      {gridIndex === 1 && <GridGroup2 />}
-      {gridIndex === 2 && <GridGroup3 />}
-      <g
-        fill="rgba(0,0,0,0)" 
-        strokeLinecap="round" 
-        strokeLinejoin="round" 
-        strokeWidth="18.815"
-        stroke="currentColor"
-      >
-        <motion.path 
-          d={path[gridIndex]}
-          // animate={{d: path[gridIndex]}}
-          transform="translate(180 70)"  
-        />
-        <motion.path 
-          d={path2[gridIndex]} 
-          // animate={{d: path2[gridIndex]}}
-          transform="translate(320.05 270)"
-        />
-      </g>
-    </svg>
-      <motion.div 
-        style={{
-          zIndex: 100, 
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)'
-        }} 
-        animate={mouse}
-      >
-        { <Cursor variant={index > 1 ? 'zoom-out' : 'zoom-in'} />}
-      </motion.div>
-    </Box>
+    <Thumbnail
+      mouseAnimation={mouse}
+      mouseVariant={index > 1 ? 'zoom-out' : 'zoom-in'}
+    >
+      <svg viewBox="0 0 640 420" width="100%">
+        {gridIndex === 0 && <GridGroup1 />}
+        {gridIndex === 1 && <GridGroup2 />}
+        {gridIndex === 2 && <GridGroup3 />}
+        <g
+          fill="rgba(0,0,0,0)" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          strokeWidth="18.815"
+          stroke="currentColor"
+        >
+          <motion.path 
+            d={path[gridIndex]}
+            // animate={{d: path[gridIndex]}}
+            transform="translate(180 70)"  
+          />
+          <motion.path 
+            d={path2[gridIndex]} 
+            // animate={{d: path2[gridIndex]}}
+            transform="translate(320.05 270)"
+          />
+        </g>
+      </svg>
+    </Thumbnail>
   )
 }
 

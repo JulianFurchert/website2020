@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "@popmotion/popcorn";
-import Box from "../components/Box"
+import { Flex, Thumbnail } from "../components"
 
 const transition = {
   x: { type: "spring",  damping: 13 },
@@ -30,40 +30,34 @@ export const Example = () => {
   }
 
   return (
-    <Box
-      onClick={handeClick} 
-      css={{
-        position: 'relative',
-        overflow: 'hidden',
-        color: 'black',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100%',
-        width: '100%',
-        transition: 'color 0.15s ease, border-color 0.15s ease',
-        '&:hover': {
-          color: '$primary'
-        }
-      }}
+    <Thumbnail
+      mouseAnimation={null}
+      mouseVariant={null}
     >
-      <AnimatePresence initial={false}>
-        <motion.div
-          style={{
-            position: 'absolute',
-            width: '100%'
-          }}
-          key={page}
-          variants={variants}
-          initial="enter"
-          exit="exit"
-          animate="center"
-          transition={transition}
-        >
-          <Images index={imageIndex} />
-        </motion.div>
-      </AnimatePresence>
-    </Box>
+      <Flex
+        css={{
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <AnimatePresence initial={false}>
+          <motion.div
+            style={{
+              position: 'absolute',
+              width: '100%'
+            }}
+            key={page}
+            variants={variants}
+            initial="enter"
+            exit="exit"
+            animate="center"
+            transition={transition}
+          >
+            <Images index={imageIndex} />
+          </motion.div>
+        </AnimatePresence>
+      </Flex>
+    </Thumbnail>
   );
 };
 

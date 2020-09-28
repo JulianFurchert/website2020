@@ -1,15 +1,16 @@
 import React from "react";
 
-type Props = SvgProps & {
-  variant?: 
-    'default' | 
-    'zoom-in' | 
-    'zoom-out' | 
-    'grab' | 
-    'grabbing' | 
-    'pointer' |
-    'ew-resize' |
-    'ns-resize'
+export type CursorVariants = 'default' | 
+  'zoom-in' | 
+  'zoom-out' | 
+  'grab' | 
+  'grabbing' | 
+  'pointer' |
+  'ew-resize' |
+  'ns-resize'
+
+  export type Props = SvgProps & {
+  variant?: CursorVariants
 }
 
 export const Cursor: React.FC<Props> = ({ variant, ...props }) => {

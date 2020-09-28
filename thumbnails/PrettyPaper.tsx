@@ -1,37 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useAnimation } from "framer-motion"
-import Cursor from "../components/Cursor"
-import Box from "../components/Box"
+import { useAnimation } from "framer-motion"
+import { Thumbnail } from "../components"
 
-const Animation = () => {
+const Animation: React.FC = () => {
   const [index, setIndex] = useState(0);
-  const area = useAnimation();
+  const mouse = useAnimation();
 
   useEffect(() => {
-    const sequence = async () => {}
+    const sequence = async () => {
+      await mouse.start({})
+      await mouse.start({})
+      setIndex((i: number) =>  i < 2 ? i + 1 : 0)
+    }
     sequence()
   }, [index])
 
-  return (
-    <Box
-      css={{
-        position: 'relative',
-        overflow: 'hidden',
-        transition: 'color 0.15s ease, border-color 0.15s ease',
-        '&:hover': {
-          color: '$primary'
-        }
-      }}
+  return(
+    <Thumbnail
+      mouseAnimation={mouse}
+      mouseVariant={index > 1 ? 'zoom-out' : 'zoom-in'}
     >
-      <motion.div 
-        animate={area}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-        }}
-      />
-    </Box>
+    </Thumbnail>
   )
 }
 
