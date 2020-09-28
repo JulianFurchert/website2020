@@ -33,17 +33,17 @@ export default function Home() {
           <Grid>
             <Link href="/projects/typescanner" passHref>
               <Card as="a" variant="preview">
-                {/* <TypeScanner /> */}
+                <TypeScanner />
               </Card>
             </Link>
             <Link href="/projects/typescanner" passHref>
               <Card variant="preview">
-                {/* <Framo /> */}
+                <Framo />
               </Card>
             </Link>
             <Link href="/projects/typescanner" passHref>
               <Card variant="preview">
-                {/* <TypeScanner /> */}
+                <Denkwerk />
               </Card>
             </Link>
             <Link href="/projects/typescanner" passHref>
@@ -53,14 +53,14 @@ export default function Home() {
             </Link>
             <Link href="/projects/typescanner" passHref>
               <Card variant="preview">
-                {/* <TypeScanner /> */}
+                <TypeScanner />
               </Card>
             </Link>
-            {/* <Link href="/projects/typescanner" passHref> */}
+            <Link href="/projects/typescanner" passHref>
               <Card variant="preview">
-                {/* <TypeScanner /> */}
+                {/* <ReproFont /> */}
               </Card>
-            {/* </Link> */}
+            </Link>
           </Grid>
         </Box>
         <Box css={{marginTop: 100}}>

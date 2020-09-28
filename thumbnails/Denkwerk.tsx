@@ -18,7 +18,7 @@ const Animation: React.FC = () => {
   return(
     <Thumbnail
       mouseAnimation={mouse}
-      mouseVariant={index > 1 ? 'zoom-out' : 'zoom-in'}
+      mouseVariant="pointer"
     >
     </Thumbnail>
   )
