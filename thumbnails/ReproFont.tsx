@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { wrap } from "@popmotion/popcorn";
 import { Flex, Thumbnail } from "../components"
 
@@ -22,6 +22,7 @@ const variants = {
 };
 
 export const Example = () => {
+  const mouse = useAnimation();
   const [page, setPage] = useState(0);
   const imageIndex = wrap(0, 3, page);
 
@@ -31,8 +32,8 @@ export const Example = () => {
 
   return (
     <Thumbnail
-      mouseAnimation={null}
-      mouseVariant={null}
+      mouseAnimation={mouse}
+      mouseVariant="pointer"
     >
       <Flex
         css={{
