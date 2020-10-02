@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useAnimation } from "framer-motion"
-import { Thumbnail } from "../components"
+import { Thumbnail, circleIndex, outsidePosition } from "../components"
 
-const Animation: React.FC = () => {
+const ThumbnailAnimation: React.FC = () => {
   const [index, setIndex] = useState(0);
   const mouse = useAnimation();
 
   useEffect(() => {
     const sequence = async () => {
-      await mouse.start({})
-      await mouse.start({})
-      setIndex((i: number) =>  i < 2 ? i + 1 : 0)
+      await mouse.start({
+        top: '50%',
+        left: '50%',
+      })
+      await mouse.start({
+        ...outsidePosition(),
+        transition: {
+          delay: 2,
+          duration: 1,
+        }
+      })
+      setIndex(circleIndex)
     }
     sequence()
   }, [index])
@@ -24,4 +33,4 @@ const Animation: React.FC = () => {
   )
 }
 
-export default Animation
+export default ThumbnailAnimation

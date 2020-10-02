@@ -21,16 +21,17 @@ export const Thumbnail: React.FC<ThumbnailProps> = ({
         style={{
           zIndex: 100, 
           position: 'absolute',
-          top: '50%',
-          left: '50%',
           transform: 'translate(-50%, -50%)'
-        }} 
+        }}
+        transition={{ duration: 1 }}
       >
         <Cursor variant={mouseVariant} />
       </motion.div>
     </Container>
   )
 }
+
+export default Thumbnail
 
 export const Container = styled('div', {
   position: 'relative',
@@ -44,4 +45,34 @@ export const Container = styled('div', {
   }
 })
 
-export default Thumbnail
+export const circleIndex = (i: number) => i < 2 ? i + 1 : 0
+
+export const outsidePosition = () => {
+  const num = Math.ceil(Math.random() * 4)
+  if(num === 1){
+    return {
+      top: '-120%',
+      left: position(),
+    }
+  }
+  if(num === 2){
+    return {
+      top: position(),
+      left: '120%',
+    }
+  }
+  if(num === 3){
+    return {
+      top: '120%',
+      left: position(),
+    }
+  }
+  if(num === 4){
+    return {
+      top: position(),
+      left: '-120%',
+    }
+  }
+}
+
+const position = () => `${Math.ceil(Math.random() * 100)}%`

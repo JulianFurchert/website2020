@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from "framer-motion"
-import { Thumbnail } from "../components"
+import { Thumbnail, circleIndex, outsidePosition } from "../components"
 
 const Animation: React.FC = () => {
   const [index, setIndex] = useState(0);
@@ -10,23 +10,18 @@ const Animation: React.FC = () => {
   useEffect(() => {
     const sequence = async () => {
       await mouse.start({ 
-        x: ['-300%', '-50%' ],
-        y: ['-300%', '-50%' ],
-        transition: { 
-          duration: 4,
-          times: [0, 0.5],
-        },
+        top: '50%',
+        left: '50%',
       })
       setGridIndex((i: number) =>  i < 2 ? i + 1 : 0)
-      await mouse.start({ 
-        x: ['-50%', '300%'],
-        y: ['-50%', '300%'],
-        transition: { 
-          duration: 4,
-          times: [0, 0.5],
-        },
+      await mouse.start({
+        ...outsidePosition(),
+        transition: {
+          delay: 2,
+          duration: 1,
+        }
       })
-      setIndex((i: number) =>  i < 2 ? i + 1 : 0)
+      setIndex(circleIndex)
     }
     sequence()
   }, [index])
