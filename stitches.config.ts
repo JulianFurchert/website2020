@@ -28,7 +28,7 @@ const theme = {
     $purple500: 'hsl(252,78%,60%)',
     $purple600: 'hsl(252,80%,53%)',
 
-    $primary: baseColors.indigo,
+    $primary: baseColors.blue,
   },
   space: {
     $1: '5px',

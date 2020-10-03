@@ -8,14 +8,26 @@ const ThumbnailAnimation: React.FC = () => {
 
   useEffect(() => {
     const sequence = async () => {
+      mouse.set(outsidePosition())
       await mouse.start({
         top: '50%',
-        left: '50%',
+        left: '60%',
+        transition: {
+          delay: 2,
+          duration: 1,
+        }
+      })
+      await mouse.start({
+        top: '50%',
+        left: '40%',
+        transition: {
+          delay: 2,
+          duration: 1,
+        }
       })
       await mouse.start({
         ...outsidePosition(),
         transition: {
-          delay: 2,
           duration: 1,
         }
       })

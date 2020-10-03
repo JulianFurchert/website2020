@@ -12,7 +12,7 @@ import Framo from '../thumbnails/Framo'
 import Denkwerk from '../thumbnails/Denkwerk'
 import PrettyPaper from '../thumbnails/PrettyPaper'
 import Theves from '../thumbnails/Theves'
-import ReproFont from '../thumbnails/ReproFont'
+import ReproFont from '../thumbnails/ReproFront'
 
 export default function Home() {
   return (
@@ -58,7 +58,7 @@ export default function Home() {
             </Link>
             <Link href="/projects/typescanner" passHref>
               <Card variant="preview">
-                {/* <ReproFont /> */}
+                <ReproFont />
               </Card>
             </Link>
           </Grid>

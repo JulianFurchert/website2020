@@ -17,13 +17,15 @@ export const Thumbnail: React.FC<ThumbnailProps> = ({
     <Container>
       {children}
       <motion.div
+        transition={{ duration: 1 }}
         animate={mouseAnimation} 
         style={{
+          top: '-200%',
+          left: '-200%',
           zIndex: 100, 
           position: 'absolute',
           transform: 'translate(-50%, -50%)'
         }}
-        transition={{ duration: 1 }}
       >
         <Cursor variant={mouseVariant} />
       </motion.div>
@@ -51,7 +53,7 @@ export const outsidePosition = () => {
   const num = Math.ceil(Math.random() * 4)
   if(num === 1){
     return {
-      top: '-120%',
+      top: '-20%',
       left: position(),
     }
   }
@@ -70,7 +72,7 @@ export const outsidePosition = () => {
   if(num === 4){
     return {
       top: position(),
-      left: '-120%',
+      left: '-20%',
     }
   }
 }
