@@ -1,126 +1,94 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useAnimation, useMotionValue, useTransform } from "framer-motion"
-import Cursor from "../components/Cursor"
-import Box from "../components/Box"
-// import Thumbnail from '../components/Thumbnail'
-// import { calculateA } from './framo-glyphs';
-// console.log(calculateA(420,620))
-// console.log(calculateA(420 * 0.2,620))
-// console.log(calculateA(420,620 * 0.1))
+import { useAnimation, motion } from "framer-motion"
+import { Thumbnail, Svg, circleIndex, outsidePosition } from "../components"
 
-const paths = [
-  [
-    'M108.5 310 L311.5 310',
-    'M7 613 L210 7 L210 7 L413 613'
-  ],
-  [
-    'M25 310 L59.5 310',
-    'M7 613 L42 7 L42 7 L77 613'
-  ],
-  [
-    'M7 31 L413 31',
-    'M7 55 L7 7 L413 7 L413 55 '
-  ],
+const mousePosition = [
+  {
+    start: { top: '50%', left: '30%'},
+    end: { top: '50%', left: '95%'}
+  },
+  {
+    start: { top: '95%', left: '50%'},
+    end: { top: '30%', left: '50%'}
+  },
+  {
+    start: { top: '30%', left: '95%'},
+    end: { top: '95%', left: '30%'}
+  }
 ]
 
-const Animation = () => {
+const areaPosition = [
+  {
+    width: 580,
+    height: 360, 
+  },
+  {
+    width: 580,
+    height: 120, 
+  },
+  {
+    width: 160,
+    height: 360, 
+  },
+]
+
+const ThumbnailAnimation: React.FC = () => {
   const [index, setIndex] = useState(0);
-  const area = useAnimation();
   const mouse = useAnimation();
+  const area = useAnimation();
 
   useEffect(() => {
     const sequence = async () => {
-      await area.start({ 
-        width: '100%',
-        height: '100%',
-        transition: { 
+      mouse.set(outsidePosition())
+      await mouse.start({
+        ...mousePosition[index].start,
+        transition: {
+          delay: 2,
           duration: 1,
-          delay: 2
-        },
+        }
       })
-      await area.start({ 
-        width: '100%',
-        height: '20%',
-        transition: { 
+      area.start({
+        ...areaPosition[index],
+        transition: {
+          delay: 2,
           duration: 1,
-          delay: 2
-        },
+        }
       })
-      await area.start({ 
-        width: '100%',
-        height: '100%',
-        transition: { 
+      await mouse.start({
+        ...mousePosition[index].end,
+        transition: {
+          delay: 2,
           duration: 1,
-          delay: 2
-        },
+        }
       })
-      await area.start({ 
-        width: '10%',
-        height: '100%',
-        transition: { 
+      await mouse.start({
+        ...outsidePosition(),
+        transition: {
           duration: 1,
-          delay: 2
-        },
+        }
       })
-      setIndex((i: number) =>  i < 2 ? i + 1 : 0)
+      setIndex(circleIndex)
     }
     sequence()
   }, [index])
 
-  return (
-    <Box
-      css={{
-        position: 'relative',
-        overflow: 'hidden',
-        transition: 'color 0.15s ease, border-color 0.15s ease',
-        '&:hover': {
-          color: '$primary'
-        }
-      }}
+  return(
+    <Thumbnail
+      mouseAnimation={mouse}
+      mouseVariant="pointer"
     >
-      <motion.div 
-        animate={area}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          backgroundColor: 'gray',
-          height: '100%',
-          width: '10%',
-        }}
-      />
-      <Box
-        css={{
-          position: 'absolute',
-          left: 0,
-          top: 0
-        }}
-      >
-        <svg width="640" height="420" viewBox="0 0 640 464" >
-          <g strokeWidth={4} stroke="currentColor" fill="none">
-            <motion.path 
-              d={paths[0][0]}
-              animate={{
-                d: paths[1][0]
-              }}
-              transition={{
-                duration: 1,
-              }}
-            />
-            <motion.path 
-              d={paths[0][1]} 
-              animate={{
-                d: paths[1][1]
-              }} 
-              transition={{
-                duration: 1,
-              }}
-            />
-          </g>
-        </svg>
-      </Box>
-    </Box>
+      <Svg viewBox="0 0 640 420" width="100%">
+        <motion.rect 
+          {...areaPosition[2]}
+          animate={area} 
+          transform="translate(30 30)"
+          fill="currentColor" 
+          fillOpacity="0.1"
+          stroke="none"
+        />
+      </Svg>
+    </Thumbnail>
   )
 }
 
-export default Animation
+export default ThumbnailAnimation
