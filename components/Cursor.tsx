@@ -7,7 +7,8 @@ export type CursorVariants = 'default' |
   'grabbing' | 
   'pointer' |
   'ew-resize' |
-  'ns-resize'
+  'ns-resize' |
+  'nwse-resize'
 
   export type Props = SvgProps & {
   variant?: CursorVariants
@@ -29,6 +30,8 @@ export const Cursor: React.FC<Props> = ({ variant, ...props }) => {
       return <EwResize {...props}/>
     case 'ns-resize':
       return <NsResize {...props}/>
+    case 'nwse-resize':
+      return <NwseResize {...props}/>
     default:
       return <Default {...props}/>
   }
@@ -146,6 +149,20 @@ const NsResize: React.FC<SvgProps> =  ({ size = 80, ...props }) => (
             </g>
             <path d="M17,9 L11,14.98 L15,14.98 L15,17 L15,19 L11,19 L17,25 L23,19 L19,19 L19,17 L19,14.98 L23,14.98 L17,9 Z M17,10.414 L20.586,13.981 L18,13.981 L18,16.501 L18,20 L20.586,20 L17,23.586 L13.414,20 L16,20 L16,16.501 L16,13.981 L13.414,13.981 L17,10.414 Z" id="resize-border" fill="#FFFFFF"></path>
             <path d="M18,16.5 L18,13.98 L20.586,13.98 L17,10.414 L13.414,13.98 L16,13.98 L16,16.5 L16,20 L13.414,20 L17,23.586 L20.586,20 L18,20 L18,16.5 Z" id="resize" fill="#000000"></path>
+        </g>
+    </g>
+  </svg>
+)
+
+const NwseResize: React.FC<SvgProps> =  ({ size = 80, ...props }) => (
+  <svg width={size} height={size} viewBox="0 0 35 35" version="1.1" {...props}>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="resizenorthwestsoutheast">
+            <g id="bg-copy" fill="#FFFFFF" opacity="0.00999999978">
+                <rect id="bg" x="0" y="0" width="35" height="35"></rect>
+            </g>
+            <path d="M14.2568,17.0869 L18.3288,21.1549 L15.4998,23.9829 L23.9728,23.9699 L23.9858,15.4999 L21.1448,18.3419 L17.0698,14.2739 L15.6558,12.8589 L18.4998,10.0169 L10.0138,10.0169 L10.0138,18.5009 L12.8428,15.6739 L14.2568,17.0869 Z" id="resize" fill="#FFFFFF"></path>
+            <path d="M15.3174,16.7334 L19.7444,21.1574 L17.9164,22.9854 L22.9724,22.9694 L22.9864,17.9154 L21.1444,19.7564 L16.7164,15.3344 L14.2424,12.8594 L16.0864,11.0164 L11.0134,11.0164 L11.0134,16.0874 L12.8434,14.2594 L15.3174,16.7334 Z" id="resize" fill="#000000"></path>
         </g>
     </g>
   </svg>

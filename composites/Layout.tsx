@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Box from './Box'
+import Box from '../components/Box'
 import Header from './Header'
 
 export const Layout: React.FC = ({ children }) => {

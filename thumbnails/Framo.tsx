@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAnimation, motion } from "framer-motion"
 import { Thumbnail, Svg, circleIndex, outsidePosition } from "../components"
+import { CursorVariants } from "../components/Cursor"
 
 const mousePosition = [
   {
@@ -36,6 +37,19 @@ const ThumbnailAnimation: React.FC = () => {
   const [index, setIndex] = useState(0);
   const mouse = useAnimation();
   const area = useAnimation();
+  const [cursor, setCursor] = useState<CursorVariants>('default');
+
+  const getResizeCursor = (): CursorVariants => {
+    if(index === 0){
+      return'ew-resize'
+    }
+    if(index === 1){
+      return'ns-resize'
+    }
+    if(index === 2){
+      return 'nwse-resize'
+    }
+  }
 
   useEffect(() => {
     const sequence = async () => {
@@ -47,6 +61,7 @@ const ThumbnailAnimation: React.FC = () => {
           duration: 1,
         }
       })
+      setCursor(getResizeCursor())
       area.start({
         ...areaPosition[index],
         transition: {
@@ -61,6 +76,7 @@ const ThumbnailAnimation: React.FC = () => {
           duration: 1,
         }
       })
+      setCursor('default')
       await mouse.start({
         ...outsidePosition(),
         transition: {
@@ -75,7 +91,7 @@ const ThumbnailAnimation: React.FC = () => {
   return(
     <Thumbnail
       mouseAnimation={mouse}
-      mouseVariant="pointer"
+      mouseVariant={cursor}
     >
       <Svg viewBox="0 0 640 420" width="100%">
         <motion.rect 

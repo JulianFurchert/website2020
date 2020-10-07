@@ -1,9 +1,9 @@
 import React from 'react'
 import { useOverlayTriggerState } from "@react-stately/overlays";
 import { styled } from '../stitches.config'
-import Text from './Text'
+import Text from '../components/Text'
 import Menu from './MenuDialog'
-import TextButton from './TextButton'
+import TextButton from '../components/TextButton'
 
 export const Header: React.FC = () => {
   let state = useOverlayTriggerState({});

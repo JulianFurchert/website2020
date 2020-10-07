@@ -1,7 +1,7 @@
 
 import React from  'react'
 import Text from '../components/Text'
-import Layout from '../components/Layout'
+import Layout from '../composites/Layout'
 import Container from '../components/Container'
 
 export default function Home() {

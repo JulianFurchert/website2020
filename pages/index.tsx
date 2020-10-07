@@ -4,7 +4,7 @@ import Box from '../components/Box'
 import Text from '../components/Text'
 import Grid from '../components/Grid'
 import Card from '../components/Card'
-import Layout from '../components/Layout'
+import Layout from '../composites/Layout'
 import Container from '../components/Container'
 
 import TypeScanner from '../thumbnails/TypeScanner'
