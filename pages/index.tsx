@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 
 import Box from '../components/Box'
 import Text from '../components/Text'
@@ -8,11 +9,12 @@ import Layout from '../composites/Layout'
 import Container from '../components/Container'
 
 import TypeScanner from '../thumbnails/TypeScanner'
-import Framo from '../thumbnails/Framo'
+// import Framo from '../thumbnails/Framo'
 import Denkwerk from '../thumbnails/Denkwerk'
 import PrettyPaper from '../thumbnails/PrettyPaper'
 import Theves from '../thumbnails/Theves'
 import ReproFont from '../thumbnails/ReproFront'
+const Framo = dynamic( () => import('../thumbnails/Framo'), { ssr: false } )
 
 export default function Home() {
   return (
