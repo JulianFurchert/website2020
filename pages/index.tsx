@@ -30,7 +30,7 @@ export default function Home() {
         </Box>
         <Box css={{marginTop: 100}}>
           <Text variant="headline2">
-            Projects
+            Some Projects
           </Text>
           <Grid>
             <Link href="/projects/typescanner" passHref>
@@ -38,28 +38,28 @@ export default function Home() {
                 <TypeScanner />
               </Card>
             </Link>
-            <Link href="/projects/typescanner" passHref>
-              <Card variant="preview">
+            <Link href="/projects/framo" passHref>
+              <Card as="a" variant="preview">
                 <Framo />
               </Card>
             </Link>
-            <Link href="/projects/typescanner" passHref>
-              <Card variant="preview">
+            <Link href="/projects/denkwerk" passHref>
+              <Card as="a" variant="preview">
                 <Denkwerk />
               </Card>
             </Link>
-            <Link href="/projects/typescanner" passHref>
-              <Card variant="preview">
+            <Link href="/projects/prettypaper" passHref>
+              <Card as="a" variant="preview">
                 {/* <Theves /> */}
               </Card>
             </Link>
-            <Link href="/projects/typescanner" passHref>
-              <Card variant="preview">
+            <Link href="/projects/theves" passHref>
+              <Card as="a" variant="preview">
                 <TypeScanner />
               </Card>
             </Link>
-            <Link href="/projects/typescanner" passHref>
-              <Card variant="preview">
+            <Link href="/projects/reprofont" passHref>
+              <Card as="a" variant="preview">
                 <ReproFont />
               </Card>
             </Link>
