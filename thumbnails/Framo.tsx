@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useAnimation, motion } from "framer-motion"
 import { Thumbnail, Svg, circleIndex, outsidePosition } from "../components"
 import { CursorVariants } from "../components/Cursor"
-import { calculateA } from "./framo-glyphs"
 
 const mousePosition = [
   {
@@ -71,12 +70,6 @@ const ThumbnailAnimation: React.FC = () => {
       return 'nwse-resize'
     }
   }
-
-  useEffect(()=>{
-    console.log(calculateA(areaPosition[0].height - 60, areaPosition[0].width - 60))
-    console.log(calculateA(areaPosition[1].height - 60, areaPosition[1].width - 60))
-    console.log(calculateA(areaPosition[2].height - 60, areaPosition[2].width - 60))
-  },[])
 
   useEffect(() => {
     const sequence = async () => {
