@@ -8,7 +8,7 @@ const StyledLink = styled(Link)`
   padding: 0;
   text-decoration: none;
   color: inherit;
-  color: ${themeGet('colors.text')};
+  color: colors.text;
   ${space}
   ${fontSize}
 `

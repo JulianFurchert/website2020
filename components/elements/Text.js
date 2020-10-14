@@ -12,7 +12,7 @@ const StyledText = styled.p`
   padding: 0;
   overflow-wrap: break-word;
   hyphens: auto;
-  color: ${themeGet('colors.text')};
+  color: colors.text;
   line-height: 1.4;
   /* max-width: 1280px */
   ${columnCount}

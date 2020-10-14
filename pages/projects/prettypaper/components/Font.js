@@ -1,8 +1,8 @@
 import React,{useState, useLayoutEffect, useRef} from 'react';
 import styled from 'styled-components';
 import Typed from 'typed.js';
-import Showcase from '../../../components/Showcase';
-import Mockup from '../../../components/Mockup';
+import Showcase from '../../../../components/Showcase';
+import Mockup from '../../../../components/Mockup';
 
 
 const ComponentContainer = styled.div`

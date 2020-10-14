@@ -14,7 +14,7 @@ const StyledSpinner = styled.div`
   height: 40px;
   border-radius: 100%;
   border: 4px solid;
-  border-color: ${themeGet('colors.text')};
+  border-color: black;
   border-bottom-color: transparent;
   display: inline-block;
   animation: ${clip} 0.75s 0s infinite linear;
