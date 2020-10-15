@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Img from  '../elements/Img';
+import Img from  '../Img';
 import Showcase from '../Showcase';
 import Mockup from '../Mockup';
 

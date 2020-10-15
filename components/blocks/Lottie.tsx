@@ -1,15 +1,15 @@
 import React, { useState, useLayoutEffect, useRef } from 'react';
-import styled from 'styled-components';
+import { styled } from '../../stitches.config'
 import lottie from 'lottie-web';
 import Showcase from '../Showcase';
 import Mockup from '../Mockup';
 
 
-const LottieContainer = styled.div`
-  position:relative;
-  width: 100%;
-  height: auto;
-`
+const LottieContainer = styled('div', {
+  position: "relative", 
+  width: "100%", 
+  height: "auto"
+})
 
 const LottieFile = ({
   data,

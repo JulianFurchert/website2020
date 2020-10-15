@@ -1,20 +1,18 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
-import { fontSize } from 'styled-system';
+import { styled } from '../../stitches.config'
 import Showcase from '../Showcase';
 import Mockup from '../Mockup';
 
-const StyledCode = styled.div`
-  font-family: 'Space Mono', monospace;
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: white;
-  line-height: 1.6;
-  padding: 16px 24px;
-  ${fontSize};
-`
+const StyledCode = styled('div', {
+  fontFamily: "'Space Mono', monospace",
+  position: "absolute",
+  left: "0",
+  width: "100%",
+  height: "100%",
+  color: "white",
+  lineHeight: 1.6,
+  padding: "16px 24px"
+})
 
 const Code = ({
   code,
@@ -30,7 +28,7 @@ const Code = ({
       onInView={()=>setInView(true)}
     >
       <Mockup {...mockup} loaded={inView}>
-        <StyledCode fontSize={fontSize}>
+        <StyledCode css={{fontSize: fontSize}}>
           { code.map(row => <div>{row}</div>) }
         </StyledCode>
       </Mockup>

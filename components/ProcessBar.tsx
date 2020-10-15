@@ -1,8 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import styled from 'styled-components'
 import { useSpring, animated } from 'react-spring'
-import { themeGet } from 'styled-system'
-import { Caption } from './elements/Text'
+import Text from './Text'
 
 const Bar = styled.div`
   position: relative;
@@ -32,7 +31,7 @@ const Progressbar = styled.div`
   height: 100%;
   height: 2px;
   flex-grow: 1;
-  background-color: ${themeGet('colors.background')};
+  background-color: colors.background;
 `
 
 const Filler = styled.div`
@@ -41,7 +40,7 @@ const Filler = styled.div`
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: ${themeGet('colors.text')};
+  background-color: colors.background;
 `
 
 const StepContainer = styled.div`
@@ -76,7 +75,7 @@ export const Timeline = ({duration, onRest, caption, bg}) => {
 
   return (
     <Bar>
-      {caption && <Caption>{caption}</Caption>}
+      {caption && <Text variant="caption">{caption}</Text>}
       <Container>
         <Progressbar>
           <AnimatedFiller style={props}/>
@@ -101,7 +100,7 @@ export const Stepbar = ({index, steps, caption}) => {
 
   return (
     <Bar>
-      {caption && <Caption>{caption}</Caption>}
+      {caption && <Text variant="caption">{caption}</Text>}
       <Container>
         {stepBars.map( item => (
           <Progressbar key={item} />
@@ -120,7 +119,7 @@ export const Stepbar = ({index, steps, caption}) => {
 export const Slider = ({percent, width, caption}) => {
   return (
     <Bar>
-    {caption && <Caption>{caption}</Caption>}
+    {caption && <Text variant="caption">{caption}</Text>}
     <Container>
       <Progressbar>
         <AnimatedFiller

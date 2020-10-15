@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { width } from 'styled-system';
 import { useSpring, animated } from 'react-spring';
@@ -32,7 +31,26 @@ const Content = styled.div`
   bottom: 0;
 `
 
-const Mockup = ({ width, ratio, children, loaded, bg, color, template, title }) => {
+type MockupProps = {
+  width: string | number,
+  ratio: number,
+  bg?: string,
+  color?: string,
+  template?: 'none' | 'simple' | 'window' | 'default',
+  title?: string,
+  loaded?: boolean,
+}
+
+const Mockup:React.FC<MockupProps> = ({ 
+  width, 
+  ratio, 
+  children, 
+  loaded = true, 
+  bg = 'surface', 
+  color, 
+  template = 'none', 
+  title 
+}) => {
   const transition = useSpring({
     transform: `translateY(${ loaded  ? "0%" : "120%"})`,
     config: { mass: 1, tension: 300, friction: 80 }
@@ -49,25 +67,6 @@ const Mockup = ({ width, ratio, children, loaded, bg, color, template, title }) 
       </Template>
     </AnimatedContainer>
   )
-}
-
-Mockup.propTypes = {
-  width: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
-  ratio: PropTypes.number.isRequired,
-  bg: PropTypes.string,
-  color: PropTypes.string,
-  template: PropTypes.oneOf(['none', 'simple', 'window', 'default']),
-  title: PropTypes.string,
-  loaded: PropTypes.bool,
-}
-
-Mockup.defaultProps = {
-  bg: "surface",
-  template: "none",
-  loaded: true,
 }
 
 export default Mockup;

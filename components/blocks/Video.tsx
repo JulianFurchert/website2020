@@ -1,62 +1,65 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import Img from "../elements/Img";
-import Spinner from '../elements/Spinner';
+import { styled } from '../../stitches.config'
+import Img from "../Img";
+import Spinner from '../Spinner';
 import Showcase from '../Showcase';
 import Mockup from '../Mockup';
 
+const LoadingContainer = styled('div', {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0
+})
 
-const LoadingContainer = styled.div`
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
-`
+const StyledVideo = styled('video', {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: 'auto',
+  fontSize: 24,
+  textAlgin: 'center'
+})
 
-const StyledVideo = styled.video`
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: auto;
-  font-size: 24px;
-  text-align: center;
-`
+type VideoPlayerProps = {
+  aspectRatio: number,
+  poster: string,
+  video: string,
+  mockup: any
+}
 
-const VideoPlayer = ({
+const VideoPlayer: React.FC<VideoPlayerProps> = ({
   video,
   poster,
   mockup,
+  aspectRatio,
   ...schowcase
 }) => {
   const [loaded, setLoaded] = useState(false)
-  const [inView, setInView] = useState(false)
 
   return(
-    <Showcase
-      {...schowcase}
-      onInView={()=>setInView(true)}
-    >
+    <Showcase {...schowcase}>
       <Mockup
         {...mockup}
         loaded={loaded}
-        ratio={poster.aspectRatio}
+        ratio={aspectRatio}
       >
         <>
           <Img
           style={{position: "absolute"}}
           onLoad={()=>setLoaded(true)}
-          fluid={poster}
+          src={poster}
           />
           <LoadingContainer>
             <Spinner />
           </LoadingContainer>
           <StyledVideo
             playsInline
-            reload="auto"
+            // reload="auto"
             loop
-            muted="muted"
+            // muted="muted"
             autoPlay
           >
             <source src={video} type="video/mp4" />

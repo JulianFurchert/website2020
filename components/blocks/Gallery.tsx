@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { useTransition, animated } from 'react-spring'
-import Img from  '../elements/Img';
+import Img from  '../Img';
 import Showcase from '../Showcase';
 import Mockup from '../Mockup';
 

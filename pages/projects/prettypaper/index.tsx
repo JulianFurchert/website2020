@@ -1,9 +1,8 @@
 
 import React from  'react'
-import { Text, Layout, Container, Box } from '../../../components'
+import { Text, Layout, Container, Box, Block } from '../../../components'
 import Color from './components/Color';
 import Font from './components/Font';
-import Video from '../../../components/showcases/Video';
 
 export default function Home() {
   return (
@@ -15,20 +14,20 @@ export default function Home() {
         <Text variant="bodyLarge">
           Hi, I’m Julian Furchert, a designer and developer based in Düsseldorf. Specializing in user interface design and typography. Furthermore, I‘m working on experimental tools and custom design applications.
         </Text>
-        <Box>
-          <Video
-            bg="#272527"
-            width={1}
-            video="/projects/prettypaper/videos/video_gray-large.mp4"
-            poster="/projects/prettypaper/img/video_gray.jpg"
-            fullSize
-            mockup={{
-              width: 1280
-            }}
-          />
-          <Color />
-          <Font />
-        </Box>
+      </Container>
+      <Container size="large">
+        <Block.Video
+          bg="#272527"
+          width={1}
+          video="/projects/prettypaper/videos/video_gray-large.mp4"
+          poster="/projects/prettypaper/img/video_gray.jpg"
+          fullSize
+          mockup={{
+            width: 1280
+          }}
+        />
+        <Color />
+        <Font />
       </Container>
     </Layout>
   )
