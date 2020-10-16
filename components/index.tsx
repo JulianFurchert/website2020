@@ -19,3 +19,5 @@ export { Block } from './blocks'
 export { AspectRatio } from './AspectRatio'
 export { Row } from './Row'
 export { Viewcase } from './Viewcase'
+
+export { ImageCase } from './viewcases/ImageCase'

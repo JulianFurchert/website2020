@@ -1,28 +1,58 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { motion } from "framer-motion"
 import { AspectRatio } from './AspectRatio'
-import { Template } from './Template'
+import { Template, TemplateProps } from './Template'
+import { useInView } from 'react-intersection-observer';
 import { styled } from '../stitches.config'
 
-type ViewcaseProps = {
+export type ViewcaseProps = {
   ratio?: [number, number],
   scheme?: 'auto' | 'light' | 'dark',
-  size?: 's' | undefined,
-  template?: 'none' | 'simple' | 'window' | 'default',
+  size?: 'full' | undefined,
+  template?: TemplateProps,
+  isShown?: boolean,
+  onInView?: () => void
 }
 
 export const Viewcase: React.FC<ViewcaseProps> = ({ 
   ratio = [1, 1],
   scheme = 'auto',
-  template = 'default',
+  size,
+  template,
+  onInView,
+  isShown,
   children
  }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });  
+
+  useEffect(()=>{
+    onInView && onInView()
+  },[inView])
+
+  isShown = isShown && inView
+
   return(
-    <Container>
+    <Container ref={ref}>
       <AspectRatio ratio={ratio}>
-        <Content scheme={scheme}>
-          <Template template={template}>
-            {children}
-          </Template>
+        <Content scheme={scheme} size={size}>
+          {isShown && (
+            <motion.div
+              initial={{ y: 600, opacity: 0  }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                  type: "spring",
+                  damping: 50,
+                  stiffness: 300,
+                  mass: 3,
+              }} 
+            >
+              <Template {...template}>
+                {children}
+              </Template>
+            </motion.div>
+          )}
         </Content>
       </AspectRatio>
     </Container>

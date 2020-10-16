@@ -66,15 +66,16 @@ const Window: React.FC<WindowProps> = ({title, bg, color, children}) => {
   )
 }
 
-type TemplateProps = {
-  template: 'none' | 'simple' | 'window' | 'default',
+export type TemplateProps = {
+  template?: 'none' | 'simple' | 'window' | 'default',
   title?: string,
+  scheme?: 'dark' | 'light'
   bg?: string,
   color?: string,
 }
 
 export const Template: React.FC<TemplateProps> = ({
-  template, 
+  template = 'default', 
   title, 
   bg, 
   color, 

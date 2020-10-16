@@ -1,6 +1,6 @@
 
 import React from  'react'
-import { Text, Layout, Container, AspectRatio, Box, Row, Viewcase } from '../../../components'
+import { Text, Layout, Container, AspectRatio, Box, Row, Viewcase, ImageCase } from '../../../components'
 
 export default function Home() {
   return (
@@ -15,38 +15,27 @@ export default function Home() {
       </Container>
       <Container size="large">
         <Row>
-          <Viewcase scheme="dark" template="none">
-            <Box 
-              css={{
-                height: 200, 
-                width: 200, 
-                backgroundColor: '$primary'
-              }} 
-            />
-          </Viewcase>
-          <Viewcase>
-            <Box 
-              css={{
-                height: 200, 
-                width: 200, 
-                backgroundColor: '$primary'
-              }} 
-            />
-          </Viewcase>
+          <ImageCase 
+            image="/projects/prettypaper/img/video_gray.jpg"
+          />
+          <ImageCase 
+            image="/projects/prettypaper/img/video_gray.jpg"
+            scheme="dark"
+          />
         </Row>
         <Row>
-          <Viewcase  scheme="dark" template="window">
-            <Box 
-              css={{
-                height: 200, 
-                width: 200, 
-                backgroundColor: '$primary'
-              }} 
-            />
-          </Viewcase>
-          <Viewcase>
-            Test
-          </Viewcase>
+          <ImageCase 
+            image="/projects/prettypaper/img/video_gray.jpg"
+          />
+          <ImageCase 
+            image="/projects/prettypaper/img/video_gray.jpg"
+          />
+        </Row>
+        <Row>
+          <ImageCase 
+            image="/projects/prettypaper/img/video_gray.jpg"
+            scheme="dark"
+          />
         </Row>
         <Row>
           <Viewcase ratio={[2,1]} />
