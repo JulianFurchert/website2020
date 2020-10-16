@@ -1,110 +1,94 @@
-import React, {useEffect} from 'react';
-import { styled } from '../stitches.config'
+import React, { useEffect } from 'react';
+import { motion } from "framer-motion"
+import { AspectRatio } from './AspectRatio'
+import { Template, TemplateProps } from './Template'
 import { useInView } from 'react-intersection-observer';
-import Spinner from './Spinner';
+import { styled } from '../stitches.config'
 
-const Container = styled('div', {
-  display: "flex", 
-  position: "relative"
-})
-
-const Border = styled('div', {
-  position: "relative",
-  width: "100%",
-  height: "100%",
-  padding: "1px"
-})
-
-const Background = styled('div', {
-  position: "relative",
-  width: "100%",
-  height: "100%",
-  padding: "16px",
-  overflow: "hidden"
-})
-
-const Content = styled('div', {
-  position: "relative",
-  padding: '48px',
-  variants: {
-    size: {
-      fullSize: {
-        padding: 0
-      }
-    }
-  }
-})
-
-const Header = styled('div', {
-  margin: "0 4px" 
-})
-
-const Footer = styled('div', {
-  margin: "0 4px" 
-})
-
-type ShowcaseProps = {
-  width: string | number
-  footer?: React.ReactElement,
-  header?: React.ReactElement,
-  onInView?: ()=>void,
-  fullSize?: boolean,
-  bg?: string
-  border?: string,
-  borderColor?: string,
+export type ShowcaseProps = {
+  ratio?: [number, number],
+  scheme?: 'auto' | 'light' | 'dark',
+  size?: 'full' | undefined,
+  template?: TemplateProps,
+  isShown?: boolean,
+  onInView?: () => void
 }
 
-const Showcase: React.FC<ShowcaseProps> = ({
-  children,
-  width,
+export const Showcase: React.FC<ShowcaseProps> = ({ 
+  ratio = [1, 1],
+  scheme = 'auto',
+  size,
+  template,
   onInView,
-  fullSize = false,
-  footer,
-  header,
-  bg = 'surface',
-  border = 'none',
-  borderColor = 'text',
-}) => {
+  isShown,
+  children
+ }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });  
 
-  const [ref, inView] = useInView({
-    rootMargin: "0px 80px 0px 80px",
-    triggerOnce: true
-  });
-
-  useEffect(()=> {
-    console.log('onInView')
+  useEffect(()=>{
     onInView && onInView()
-  },[])
+  },[inView])
 
-  return (
-    <Container
-      ref={ref}
-      css={{
-        paddingY: '12px',
-        paddingX: '12px',
-      }}
-    >
-      <Border css={{border, borderColor}}>
-        <Background 
-          css={{
-            backgroundColor: bg,
-            padding: fullSize ? "1px" : "16px"
-          }}  
-        >
-          <Spinner />
-          <Header>
-            { header && header }
-          </Header>
-          <Content size={fullSize ? 'fullSize' : null}>
-            { children }
-          </Content>
-          <Footer>
-            { footer && footer }
-          </Footer>
-        </Background>
-      </Border>
+  isShown = isShown && inView
+
+  return(
+    <Container ref={ref}>
+      <AspectRatio ratio={ratio}>
+        <Content scheme={scheme} size={size}>
+          {isShown && (
+            <motion.div
+              initial={{ y: 600, opacity: 0  }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                  type: "spring",
+                  damping: 50,
+                  stiffness: 300,
+                  mass: 3,
+              }} 
+            >
+              <Template {...template}>
+                {children}
+              </Template>
+            </motion.div>
+          )}
+        </Content>
+      </AspectRatio>
     </Container>
   )
 }
 
-export default Showcase;
+const Container = styled('div', {
+  padding: '$2',
+  width: '100%'
+})
+
+const Content = styled('div', {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '$2',
+  height: '100%',
+  width: '100%',
+  variants: {
+    scheme: {
+      auto: {
+        backgroundColor: '$gray200'
+      },
+      light: {
+        backgroundColor: '$gray200'
+      },
+      dark: {
+        backgroundColor: '$gray600'
+      }
+    },
+    size: {
+      full: {
+        padding: 0,
+      },
+    }
+  }
+})
+
+export default Showcase

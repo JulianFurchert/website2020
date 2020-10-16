@@ -1,6 +1,6 @@
 
 import React from  'react'
-import { Text, Layout, Container, AspectRatio, Box, Row, Viewcase, ImageCase } from '../../../components'
+import { Text, Layout, Container, Row, Showcase, ImageCase } from '../../../components'
 
 export default function Home() {
   return (
@@ -38,7 +38,7 @@ export default function Home() {
           />
         </Row>
         <Row>
-          <Viewcase ratio={[2,1]} />
+          <Showcase ratio={[2,1]} />
         </Row>
       </Container>
     </Layout>

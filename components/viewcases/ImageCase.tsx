@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { styled } from '../../stitches.config'
-import Viewcase, { ViewcaseProps } from '../Viewcase';
+import { Showcase, ShowcaseProps } from '../Showcase';
 
-type ImageProps = ViewcaseProps & {
+type ImageProps = ShowcaseProps & {
   image: string
 }
 
@@ -16,13 +16,13 @@ export const ImageCase: React.FC<ImageProps> = ({ image, ...viewcase }) =>  {
   }
 
   return (
-    <Viewcase 
+    <Showcase 
       {...viewcase}
       isShown={isShown} 
       onInView={handleOnInView} 
     >
       <StyledImage src={image} />
-    </Viewcase>
+    </Showcase>
   )
 }
 

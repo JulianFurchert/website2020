@@ -1,8 +1,6 @@
 
 import React from  'react'
-import { Text, Layout, Container, Box, Block } from '../../../components'
-import Color from './components/Color';
-import Font from './components/Font';
+import { Text, Layout, Container } from '../../../components'
 
 export default function Home() {
   return (
@@ -16,18 +14,6 @@ export default function Home() {
         </Text>
       </Container>
       <Container size="large">
-        <Block.Video
-          bg="#272527"
-          width={1}
-          video="/projects/prettypaper/videos/video_gray-large.mp4"
-          poster="/projects/prettypaper/img/video_gray.jpg"
-          fullSize
-          mockup={{
-            width: 1280
-          }}
-        />
-        <Color />
-        <Font />
       </Container>
     </Layout>
   )
