@@ -4,7 +4,6 @@ import BaseButton from './BaseButton'
 export const IconButton = styled(BaseButton, {
   '& svg': {
     display: 'block',
-    color: '$gray600'
   }
 })
 

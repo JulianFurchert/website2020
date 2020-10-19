@@ -10,7 +10,7 @@ const baseColors = {
   $white: "#FFFFFF",
   $black: "#000000",
   $gray: '#eeeeee',
-  $darkGray: '#262626',
+  $darkGray: '#222222',
 }
 
 const theme = {

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { styled } from '../../stitches.config'
 import { Showcase, ShowcaseProps } from '../Showcase';
 
-type ImageProps = ShowcaseProps & {
+type ImageCaseProps = ShowcaseProps & {
   image: string
 }
 
-export const ImageCase: React.FC<ImageProps> = ({ image, ...viewcase }) =>  {
+export const ImageCase: React.FC<ImageCaseProps> = ({ image, ...viewcase }) =>  {
   const [isShown, setIsShown] = useState(false);
  
   const handleOnInView = () => {

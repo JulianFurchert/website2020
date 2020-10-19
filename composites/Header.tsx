@@ -39,12 +39,22 @@ export default Header
 const Container = styled('div', {
   position: 'sticky',
   top: 0,
-  backgroundColor: 'rgba(255,255,255,0.8)',
   height: 60,
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   zIndex: 200,
   paddingX: '$6',
-  backdropFilter: 'saturate(1.8) blur(20px);'
+  '&:after': {
+    content: '""',
+    backgroundColor: '$background',
+    opacity: 0.8,
+    backdropFilter: 'saturate(1.8) blur(20px)',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    position: 'absolute',
+    zIndex: -1,
+  }
 })

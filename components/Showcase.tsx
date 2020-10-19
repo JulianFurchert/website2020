@@ -20,7 +20,7 @@ export const Showcase: React.FC<ShowcaseProps> = ({
   size,
   template,
   onInView,
-  isShown,
+  isShown = true,
   children
  }) => {
   const { ref, inView } = useInView({

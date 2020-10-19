@@ -26,7 +26,8 @@ function ModalDialog(props: ModalDialogProps) {
   let { dialogProps, titleProps } = useDialog(props, ref);
 
   return (
-    <Overlay>
+    <Container>
+      <Overlay />
       <FocusScope contain restoreFocus autoFocus>
         <Dialog
           {...overlayProps}
@@ -37,13 +38,12 @@ function ModalDialog(props: ModalDialogProps) {
           {children}
         </Dialog>
       </FocusScope>
-    </Overlay>
+    </Container>
   );
 }
 
-const Overlay = styled('div', ({
+const Container = styled('div', ({
   zIndex: 1000,
-  background: 'rgba(30, 30, 30, 0.95)',
   position: 'fixed',
   display: 'flex',
   justifyContent: 'center',
@@ -55,10 +55,21 @@ const Overlay = styled('div', ({
   overflow: 'auto',
 }))
 
+
+const Overlay = styled('div', ({
+  backgroundColor: '$text',
+  opacity: '0.85',
+  position: 'fixed',
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: 0,
+}))
+
 const Dialog = styled('div', ({
   zIndex: 1000,
   width: '50vw',
-  background: 'white',
+  backgroundColor: '$background',
   outline: 'none',
   borderRadius: 12,
 }))

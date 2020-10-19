@@ -27,7 +27,7 @@ const StyledButton = styled('button', {
   width: 'auto',
   overflow: 'visible',
   background: 'transparent',
-  color: '$hiContrast',
+  color: '$text',
   font: 'inherit',
   lineHeight: 'normal',
   '&:hover': {

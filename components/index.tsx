@@ -20,3 +20,5 @@ export { Row } from './Row'
 export { Showcase } from './Showcase'
 
 export { ImageCase } from './viewcases/ImageCase'
+export { SvgCase } from './viewcases/SvgCase'
+export { ComponentCase } from './viewcases/ComponentCase'

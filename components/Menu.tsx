@@ -74,7 +74,7 @@ const StyledItem = styled('li', ({
   color: 'inherit',
   textDecoration: 'inherit',
   '&[data-focused]':{
-    backgroundColor: '$gray300'
+    backgroundColor: '$surface'
   },
   '&:focus': {
     outline: 'none',
