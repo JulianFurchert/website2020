@@ -1,10 +1,10 @@
 
 import React from  'react'
-import { Text, Layout, Container, Row, Showcase, ImageCase } from '../../../components'
+import { Text, Container, Row, Showcase, ImageCase } from '../../../components'
 
 export default function Home() {
   return (
-    <Layout>
+    <React.Fragment>
       <Container>
         <Text variant="headline" css={{marginBottom: 20}}>
           Framo
@@ -41,6 +41,6 @@ export default function Home() {
           <Showcase ratio={[2,1]} />
         </Row>
       </Container>
-    </Layout>
+    </React.Fragment>
   )
 }

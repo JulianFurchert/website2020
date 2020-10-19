@@ -2,13 +2,17 @@ import Head from 'next/head'
 import Box from '../components/Box'
 import Header from './Header'
 
-export const Layout: React.FC = ({ children }) => {
+type LayoutProps = {
+  toggleTheme: () => void
+}
+
+export const Layout: React.FC<LayoutProps> = ({ toggleTheme, children }) => {
   return (
     <Box>
       <Head>
         <title>Julian Furchert</title>
       </Head>
-      <Header />
+      <Header toggleTheme={toggleTheme} />
       <Box css={{marginTop: 100}}>
         {children}
       </Box>

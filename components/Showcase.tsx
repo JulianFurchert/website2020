@@ -74,13 +74,13 @@ const Content = styled('div', {
   variants: {
     scheme: {
       auto: {
-        backgroundColor: '$gray200'
+        backgroundColor: '$surface'
       },
       light: {
-        backgroundColor: '$gray200'
+        backgroundColor: '$gray'
       },
       dark: {
-        backgroundColor: '$gray600'
+        backgroundColor: '$darkGray'
       }
     },
     size: {

@@ -4,8 +4,14 @@ import { styled } from '../stitches.config'
 import Text from '../components/Text'
 import Menu from './MenuDialog'
 import TextButton from '../components/TextButton'
+import { ThemeToggle } from '../components/ThemeToggle'
+import Flex from '../components/Flex'
 
-export const Header: React.FC = () => {
+type HeaderProps = {
+  toggleTheme: () => void
+}
+
+export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
   let state = useOverlayTriggerState({});
 
   return(
@@ -14,9 +20,12 @@ export const Header: React.FC = () => {
         <Text>
           Julian Furchert
         </Text>
-        <TextButton onPress={state.open}>
-          Menu
-        </TextButton>
+        <Flex css={{justifyContent: 'center'}}>
+          <TextButton onPress={state.open}>
+            Menu
+          </TextButton>
+          <ThemeToggle toggleTheme={toggleTheme} /> 
+        </Flex>
       </Container>
       {state.isOpen && (
         <Menu onClose={state.close} />

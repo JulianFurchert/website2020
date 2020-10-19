@@ -1,34 +1,25 @@
 import { createStyled } from '@stitches/react'
 
 const baseColors = {
-  blue: '#007aff',
-  green: '#34c759',
-  indigo: '#5856d6',
-  orange: '#ff9501',
-  pink: '#ff2d55',
-  purple: '#af52de',
+  $blue: '#007aff',
+  $green: '#34c759',
+  $indigo: '#5856d6',
+  $orange: '#ff9501',
+  $pink: '#ff2d55',
+  $purple: '#af52de',
+  $white: "#FFFFFF",
+  $black: "#000000",
+  $gray: '#eeeeee',
+  $darkGray: '#262626',
 }
 
 const theme = {
   colors: {
-    $hiContrast: 'hsl(206,10%,5%)',
-    $loContrast: 'white',
-
-    $gray100: 'hsl(206,22%,99%)',
-    $gray200: 'hsl(206,12%,97%)',
-    $gray300: 'hsl(206,11%,92%)',
-    $gray400: 'hsl(206,10%,84%)',
-    $gray500: 'hsl(206,10%,76%)',
-    $gray600: 'hsl(206,10%,44%)',
-
-    $purple100: 'hsl(252,100%,99%)',
-    $purple200: 'hsl(252,100%,98%)',
-    $purple300: 'hsl(252,100%,94%)',
-    $purple400: 'hsl(252,75%,84%)',
-    $purple500: 'hsl(252,78%,60%)',
-    $purple600: 'hsl(252,80%,53%)',
-
-    $primary: baseColors.blue,
+    ...baseColors,
+    $primary: baseColors.$blue,
+    $text: baseColors.$black,
+    $background: baseColors.$white,
+    $surface: baseColors.$gray,
   },
   space: {
     $1: '5px',
@@ -98,3 +89,19 @@ export const { styled, css } = createStyled({
     bp2: (rule) => `@media (min-width: 900px) { ${rule} }`,
   },
 })
+
+export const darkThemeClass = css.theme({
+  ...baseColors, 
+  $primary: baseColors.$blue, 
+  $text: baseColors.$white, 
+  $background: baseColors.$black, 
+  $surface: baseColors.$darkGray
+}).toString()
+
+
+css.global({
+  body: { 
+    backgroundColor: '$background',
+    color: '$text'
+  },
+});
