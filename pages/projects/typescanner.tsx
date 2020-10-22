@@ -1,18 +1,15 @@
 
 import React from  'react'
-import { Text, Container } from '../../components'
+import { ProjectTemplate } from '../../composites'
+import { Row, ComponentCase, ImageCase } from '../../components'
 
 export default function Home() {
   return (
-    <React.Fragment>
-      <Container>
-        <Text variant="headline" css={{marginBottom: 20}}>
-          Type Scanner
-        </Text>
-        <Text variant="bodyLarge">
-          Hi, I’m Julian Furchert, a designer and developer based in Düsseldorf. Specializing in user interface design and typography. Furthermore, I‘m working on experimental tools and custom design applications.
-        </Text>
-      </Container>
-    </React.Fragment>
+    <ProjectTemplate
+      title="Typescanner"
+      text="TypeScanner ist eine Web-App, die Schriften auf Basis von 96 unterschiedlichen Grids generieren kann. Das Ergebnis lässt sich durch drei Eigenschaften modifizieren. Die Auswahl des Grids, dessen Postion und seine Skalierung. Die daraus entstehenden Formen der Glyphen reichen von lesbaren Zeichen bis hin zu abstrakten Formen. Dank der eingebunden Library opentype.js können die Schriften direkt im OTF-Format aus der App exportiert werden. Umgesetzt ist TypeScanner mit React. Die Grids stammen aus dem Buch “Grid Index” von Carsten Nicolai und sind mit Processing in mehreren Schritten aufbereitet."
+    >
+      <Row></Row>
+    </ProjectTemplate>
   )
 }

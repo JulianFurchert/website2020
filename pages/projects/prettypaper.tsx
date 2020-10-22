@@ -1,20 +1,15 @@
 
 import React from  'react'
-import { Text, Container } from '../../components'
+import { ProjectTemplate } from '../../composites'
+import { Row, ComponentCase, ImageCase } from '../../components'
 
 export default function Home() {
   return (
-    <React.Fragment>
-      <Container>
-        <Text variant="headline" css={{marginBottom: 20}}>
-          Pretty Paper
-        </Text>
-        <Text variant="bodyLarge">
-          Hi, I’m Julian Furchert, a designer and developer based in Düsseldorf. Specializing in user interface design and typography. Furthermore, I‘m working on experimental tools and custom design applications.
-        </Text>
-      </Container>
-      <Container size="large">
-      </Container>
-    </React.Fragment>
+    <ProjectTemplate
+      title="Pretty Paper"
+      text="Pretty Paper is a Gatsby Starter for creating style guides, documentations, or design systems. With Pretty Paper, you can easily write your documentation using Markdown. To simplify the writing of Design Specification, the Markdown synatx has been extended with special code blocks. This allows you to quickly define colors, fonts, text styles, or add videos and lottie animations to your documentation."
+    >
+      <Row></Row>
+    </ProjectTemplate>
   )
 }
