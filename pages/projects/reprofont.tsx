@@ -1,6 +1,6 @@
 
 import React from  'react'
-import { Text, Container } from '../../../components'
+import { Text, Container } from '../../components'
 
 export default function Home() {
   return (

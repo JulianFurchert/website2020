@@ -1,10 +1,10 @@
 
 import React from  'react'
-import { ProjectTemplate } from '../../../composites'
-import { Row, ComponentCase, ImageCase } from '../../../components'
+import { ProjectTemplate } from '../../composites'
+import { Row, ComponentCase, ImageCase } from '../../components'
 
-import FlowerSkizze from './components/FlowerSkizze.js';
-import Flower from './components/Flower.js';
+import FlowerSkizze from '../../project/denkwerk/FlowerSkizze.js';
+import Flower from '../../project/denkwerk/Flower.js';
 
 export default function Home() {
   return (

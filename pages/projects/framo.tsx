@@ -1,7 +1,7 @@
 
 import React from  'react'
-import { ProjectTemplate } from '../../../composites'
-import { Row, ImageCase, VideoCase, ComponentCase } from '../../../components'
+import { ProjectTemplate } from '../../composites'
+import { Row, ImageCase, VideoCase, ComponentCase } from '../../components'
 // import Animation from './components/Animation.js';
 
 export default function Home() {
