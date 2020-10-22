@@ -22,7 +22,7 @@ export const ProjectTemplate:React.FC<ProjectTemplateProp> = ({
           {text}
         </Text>
       </Container>
-      <Container size="large" css={{marginX: '-10px'}}>
+      <Container css={{marginX: '-10px'}}>
         {children}
       </Container>
     </React.Fragment>
