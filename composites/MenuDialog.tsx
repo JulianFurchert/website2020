@@ -4,7 +4,7 @@ import { styled } from '../stitches.config'
 import { useRouter } from 'next/router'
 import { Menu, Item } from '../components/Menu';
 import { ModalDialog } from '../components/Dialog';
-import { X, Coffee, Archive, Book, Sun } from 'react-feather';
+import { X, Coffee, Archive, Book, Sun, User } from 'react-feather';
 import { OverlayContainer } from "@react-aria/overlays";
 import IconButton from '../components/IconButton';
 import Text from '../components/Text';
@@ -40,8 +40,15 @@ export const MenuDialog: React.FC<{onClose: () => void}> = ({ onClose }) => {
             <Item textValue='Overview' key="/" >
               <MenuItem
                 icon={<Coffee />}
-                label="Overview"
+                label="Home"
                 href="/"
+              />
+            </Item>
+            <Item textValue='Projects Archiv' key="/about-me" >
+              <MenuItem
+                icon={<User />}
+                label="About Me"
+                href="/about-me"
               />
             </Item>
             <Item textValue='Projects Archiv' key="/projects-archiv" >
