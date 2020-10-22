@@ -41,6 +41,7 @@ export const Showcase: React.FC<ShowcaseProps> = ({
             <motion.div
               initial={{ y: 600, opacity: 0  }}
               animate={{ y: 0, opacity: 1 }}
+              style={{ width: '100%' }}
               transition={{
                   type: "spring",
                   damping: 50,
@@ -48,7 +49,7 @@ export const Showcase: React.FC<ShowcaseProps> = ({
                   mass: 3,
               }} 
             >
-              <Template {...template}>
+              <Template template={size === 'full' ? 'none' : 'default'} {...template} >
                 {children}
               </Template>
             </motion.div>
@@ -68,7 +69,7 @@ const Content = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: '$2',
+  padding: '$6',
   height: '100%',
   width: '100%',
   variants: {
