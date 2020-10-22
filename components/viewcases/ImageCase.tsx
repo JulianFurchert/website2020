@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled } from '../../stitches.config'
 import { Showcase, ShowcaseProps } from '../Showcase';
 
@@ -7,14 +7,26 @@ type ImageCaseProps = ShowcaseProps & {
 }
 
 export const ImageCase: React.FC<ImageCaseProps> = ({ publicId, ...viewcase }) =>  {
+  const isMounted = React.useRef(true);
   const [isShown, setIsShown] = useState(false);
+
   const url = `http://res.cloudinary.com/julianfurchert/image/upload/v1/portfolio/${publicId}`
 
   const handleOnInView = () => {
     let img = new Image();
     img.src= url;
-    img.onload = () => setIsShown(true);
+    img.onload = () => {
+      if(isMounted.current){
+        setIsShown(true);
+      }
+    }
   }
+
+  useEffect(() => {
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
   return (
     <Showcase 

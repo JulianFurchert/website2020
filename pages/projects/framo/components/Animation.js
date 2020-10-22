@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSpring, animated } from 'react-spring'
 import styled from 'styled-components';
-import { themeGet } from 'styled-system';
+import { themeGet } from '@styled-system/theme-get'
 
 const Form = styled.div`
   width: 100%;
@@ -12,7 +12,7 @@ const Svg = styled.svg`
   width: 100%;
   stroke-width: 4px;
   fill: none;
-  stroke: ${themeGet("colors.text")};
+  stroke: currentColor;
   stroke-linejoin: miter;
 `
 
@@ -159,7 +159,6 @@ const start = {
 
 
 const Animation = () => {
-  console.log(steps.length);
   const props = useSpring({
     from: {...start},
     to: async next => {
