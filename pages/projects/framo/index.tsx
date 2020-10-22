@@ -1,7 +1,7 @@
 
 import React from  'react'
 import { ProjectTemplate } from '../../../composites'
-import { Row, ComponentCase, ImageCase, VideoCase } from '../../../components'
+import { Row, ImageCase, VideoCase, ComponentCase } from '../../../components'
 // import Animation from './components/Animation.js';
 
 export default function Home() {
@@ -16,8 +16,8 @@ export default function Home() {
           ratio={[520, 300]}
           template={{
             template: 'none'
-          }} */}
-        />
+          }}
+        /> */}
       </Row>
       <Row>
         <ImageCase 
