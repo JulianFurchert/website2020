@@ -1,7 +1,7 @@
 
 import React from  'react'
 import { ProjectTemplate } from '../../../composites'
-import { Row, ComponentCase, ImageCase } from '../../../components'
+import { Row, ComponentCase, ImageCase, VideoCase } from '../../../components'
 import Animation from './components/Animation.js';
 
 export default function Home() {
@@ -25,8 +25,15 @@ export default function Home() {
           ratio={[750, 1334]}
         />
         <ImageCase 
-          publicId="framo/framo_mobil_qd9yci"
+          publicId="framo/framo_card_lb42tc"
           ratio={[750, 1334]}
+        />
+      </Row>
+      <Row>
+        <VideoCase 
+          videoId="framo/Website_1-large_ixxz8g"
+          ratio={[2880, 1800]}
+          size="full"
         />
       </Row>
     </ProjectTemplate>
