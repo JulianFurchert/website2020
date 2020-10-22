@@ -30,12 +30,7 @@ export default function Home() {
         <Text variant="headline2">
           Some Projects
         </Text>
-        <Grid>
-          <Link href="/projects/typescanner" passHref>
-            <Card as="a" variant="preview">
-              <TypeScanner />
-            </Card>
-          </Link>
+        <Grid size="large">
           <Link href="/projects/framo" passHref>
             <Card as="a" variant="preview">
               <Framo />
@@ -44,6 +39,11 @@ export default function Home() {
           <Link href="/projects/denkwerk" passHref>
             <Card as="a" variant="preview">
               <Denkwerk />
+            </Card>
+          </Link>
+          <Link href="/projects/typescanner" passHref>
+            <Card as="a" variant="preview">
+              <TypeScanner />
             </Card>
           </Link>
           <Link href="/projects/prettypaper" passHref>
