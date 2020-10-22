@@ -3,7 +3,7 @@ import { useOverlayTriggerState } from "@react-stately/overlays";
 import { styled } from '../stitches.config'
 import Text from '../components/Text'
 import Menu from './MenuDialog'
-import TextButton from '../components/TextButton'
+import { TextButton, Container } from '../components'
 import { ThemeToggle } from '../components/ThemeToggle'
 import Flex from '../components/Flex'
 
@@ -16,17 +16,27 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
 
   return(
     <React.Fragment>
-      <Container>
-        <Text>
-          Julian Furchert
-        </Text>
-        <Flex css={{justifyContent: 'center'}}>
-          <TextButton onPress={state.open}>
-            Menu
-          </TextButton>
-          <ThemeToggle toggleTheme={toggleTheme} /> 
-        </Flex>
-      </Container>
+      <StyledHeader>
+        <Container>
+          <Flex 
+            css={{
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              height: 60
+            }}
+            >
+            <Text>
+              Julian Furchert
+            </Text>
+            <Flex css={{justifyContent: 'center'}}>
+              <TextButton onPress={state.open}>
+                Menu
+              </TextButton>
+              <ThemeToggle toggleTheme={toggleTheme} /> 
+            </Flex>
+          </Flex>
+        </Container>
+      </StyledHeader>
       {state.isOpen && (
         <Menu onClose={state.close} />
       )}
@@ -36,15 +46,10 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
 
 export default Header
 
-const Container = styled('div', {
+const StyledHeader = styled('div', {
   position: 'sticky',
   top: 0,
-  height: 60,
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
   zIndex: 200,
-  paddingX: '$6',
   '&:after': {
     content: '""',
     backgroundColor: '$background',
