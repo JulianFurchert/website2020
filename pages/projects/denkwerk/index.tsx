@@ -1,7 +1,7 @@
 
 import React from  'react'
 import { ProjectTemplate } from '../../../composites'
-import { Row, Showcase, ComponentCase, ImageCase } from '../../../components'
+import { Row, ComponentCase, ImageCase } from '../../../components'
 
 import FlowerSkizze from './components/FlowerSkizze.js';
 import Flower from './components/Flower.js';
