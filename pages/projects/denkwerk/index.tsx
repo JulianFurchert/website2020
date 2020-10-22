@@ -30,13 +30,13 @@ export default function Home() {
       </Row>
       <Row>
         <ImageCase 
-          image="/projects/denkwerk/img/jutebeutel_dark.jpg"
+          publicId="denkwerk/jutebeutel_dark_qrih7l"
           ratio={[2600,3460]}
           size="full"
           scheme="dark"
         />
         <ImageCase 
-          image="/projects/denkwerk/img/rolled_dark.jpg"
+          publicId="denkwerk/rolled_dark_ssc2z7"
           ratio={[1560,2076]}
           size="full"
           scheme="dark"   
@@ -44,20 +44,20 @@ export default function Home() {
       </Row>
       <Row>
         <ImageCase 
-          image="/projects/denkwerk/img/FoldedCorner.jpg"
+          publicId="denkwerk/FoldedCorner_o7gset"
           ratio={[2400,1600]}
           size="full"
         />
       </Row>
       <Row>
         <ImageCase 
-          image="/projects/denkwerk/img/WallCurved_dark.jpg" 
+          publicId="denkwerk/WallCurved_dark_avhayl"
           ratio={[800,700]}
           size="full"
           scheme="dark" 
         />
-        <ImageCase 
-          image="/projects/denkwerk/img/dmexcoTeaser.jpg" 
+        <ImageCase
+          publicId="denkwerk/dmexcoTeaser_zefzcu" 
           ratio={[800,700]}
           size="full" 
           scheme="dark" 
