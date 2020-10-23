@@ -1,7 +1,7 @@
 
 import React from  'react'
 import { ProjectTemplate } from '../../composites'
-import { Row, ComponentCase, ImageCase } from '../../components'
+import { Row, CaseComponent, CaseImage } from '../../components'
 
 export default function Home() {
   return (

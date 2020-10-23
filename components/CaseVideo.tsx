@@ -1,12 +1,12 @@
 import React from 'react';
-import { styled } from '../../stitches.config'
-import { Showcase, ShowcaseProps } from '../Showcase';
+import { styled } from '../stitches.config'
+import { Showcase, ShowcaseProps } from './Showcase';
 
-type VideoCaseProps = ShowcaseProps & {
+type CaseVideoProps = ShowcaseProps & {
   videoId: string
 }
 
-export const VideoCase: React.FC<VideoCaseProps> = ({ videoId, ...viewcase }) =>  {
+export const CaseVideo: React.FC<CaseVideoProps> = ({ videoId, ...viewcase }) =>  {
   const url = `http://res.cloudinary.com/julianfurchert/video/upload/v1/portfolio/${videoId}`
 
   return (

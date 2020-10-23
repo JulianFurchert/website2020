@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { styled } from '../../stitches.config'
-import { Showcase, ShowcaseProps } from '../Showcase';
+import { styled } from '../stitches.config'
+import { Showcase, ShowcaseProps } from './Showcase';
 
-type ImageCaseProps = ShowcaseProps & {
+type CaseImageProps = ShowcaseProps & {
   publicId: string
 }
 
-export const ImageCase: React.FC<ImageCaseProps> = ({ publicId, ...viewcase }) =>  {
+export const CaseImage: React.FC<CaseImageProps> = ({ publicId, ...viewcase }) =>  {
   const isMounted = React.useRef(true);
   const [isShown, setIsShown] = useState(false);
 

@@ -1,12 +1,12 @@
 import React from 'react';
-import { styled } from '../../stitches.config'
-import { Showcase, ShowcaseProps } from '../Showcase';
+import { styled } from '../stitches.config'
+import { Showcase, ShowcaseProps } from './Showcase';
 
-type ComponentCaseProps = ShowcaseProps & {
+type CaseComponentProps = ShowcaseProps & {
   component: React.ReactNode
 }
 
-export const ComponentCase: React.FC<ComponentCaseProps> = ({ component, ...viewcase }) =>  {
+export const CaseComponent: React.FC<CaseComponentProps> = ({ component, ...viewcase }) =>  {
   console.log(component)
   return (
     <Showcase {...viewcase}>
