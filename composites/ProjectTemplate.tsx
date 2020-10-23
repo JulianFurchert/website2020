@@ -1,6 +1,6 @@
 
 import React from  'react'
-import { Text, Container } from '../components'
+import { Text, Container, Box } from '../components'
 
 type ProjectTemplateProp = {
   title: string,
@@ -13,18 +13,16 @@ export const ProjectTemplate:React.FC<ProjectTemplateProp> = ({
   children
 }) => {
   return (
-    <React.Fragment>
-      <Container css={{marginBottom: 60}}>
-        <Text variant="headline" css={{marginBottom: 20}}>
-          {title}
-        </Text>
-        <Text variant="bodyLarge">
-          {text}
-        </Text>
-      </Container>
-      <Container css={{marginX: '-10px'}}>
+    <Container>
+      <Text variant="headline" css={{marginBottom: 20}}>
+        {title}
+      </Text>
+      <Text variant="bodyLarge">
+        {text}
+      </Text>
+      <Box css={{marginTop: 60}}>
         {children}
-      </Container>
-    </React.Fragment>
+      </Box>
+    </Container>
   )
 }
