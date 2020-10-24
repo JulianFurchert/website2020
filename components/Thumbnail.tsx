@@ -5,46 +5,47 @@ import { Cursor, CursorVariants } from "./Cursor"
 
 type ThumbnailProps = {
   mouseAnimation: AnimationControls,
-  mouseVariant: CursorVariants
+  mouseVariant: CursorVariants,
+  withoutMouse?: boolean,
 }
 
 export const Thumbnail: React.FC<ThumbnailProps> = ({
   mouseAnimation,
   mouseVariant,
+  withoutMouse,
   children
 }) => {
   return (
-    <Container>
+    <Container whileHover="hover">
       {children}
-      <motion.div
-        transition={{ duration: 1 }}
-        animate={mouseAnimation} 
-        style={{
-          top: '-200%',
-          left: '-200%',
-          zIndex: 100, 
-          position: 'absolute',
-          transform: 'translate(-50%, -50%)'
-        }}
-      >
-        <Cursor variant={mouseVariant} />
-      </motion.div>
+      {!withoutMouse && (
+        <motion.div
+          transition={{ duration: 1 }}
+          animate={mouseAnimation} 
+          style={{
+            top: '-200%',
+            left: '-200%',
+            zIndex: 100, 
+            position: 'absolute',
+            transform: 'translate(-50%, -50%)'
+          }}
+        >
+          <Cursor variant={mouseVariant} />
+        </motion.div>
+      )}
     </Container>
   )
 }
 
 export default Thumbnail
 
-export const Container = styled('div', {
+export const Container = styled(motion.div, {
   position: 'relative',
   overflow: 'hidden',
   color: 'black',
   height: '100%',
   width: '100%',
   transition: 'color 0.15s ease, border-color 0.15s ease',
-  '&:hover': {
-    color: '$primary'
-  }
 })
 
 export const circleIndex = (i: number) => i < 2 ? i + 1 : 0

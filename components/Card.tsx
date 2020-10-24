@@ -9,10 +9,10 @@ export const Card = styled('div', {
   borderRadius: 0,
   padding: '$6',
   transition: 'color 0.15s ease, border-color 0.15s ease',
-  '&:hover': {
-    color: '$primary',
-    borderColor: '$primary'
-  },
+  // '&:hover': {
+  //   color: '$primary',
+  //   borderColor: '$primary'
+  // },
   variants: {
     variant: {
       preview: {
