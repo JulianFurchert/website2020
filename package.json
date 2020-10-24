@@ -17,6 +17,7 @@
     "@stitches/react": "0.0.1",
     "@styled-system/theme-get": "^5.1.2",
     "cloudinary-react": "^1.6.7",
+    "contentful": "^7.14.8",
     "d3-scale": "^3.2.3",
     "framer-motion": "^2.6.15",
     "lottie-web": "^5.7.3",

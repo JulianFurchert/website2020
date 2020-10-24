@@ -1,9 +1,18 @@
 
-import React from  'react'
+import React, { useEffect } from  'react'
 import Text from '../components/Text'
 import Container from '../components/Container'
+import client from '../client'
 
 export default function Home() {
+  useEffect(()=>{
+    async function getPosts() {
+      const entries = await client.getEntries()
+      console.log(entries)
+    }
+    getPosts()
+  },[])
+
   return (
     <Container>
       <Text variant="headline" css={{marginBottom: 20}}>
