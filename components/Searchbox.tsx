@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { styled } from '../stitches.config'
-import {useCombobox, useMultipleSelection} from 'downshift'
+import { ChevronDown } from 'react-feather'
+import { useCombobox, useMultipleSelection } from 'downshift'
 
 type Item = {
   name: string,
@@ -34,7 +35,6 @@ export const Searchbox: React.FC<SearchboxProp> = ({items, initialSelectedItems 
   const {
     isOpen,
     getToggleButtonProps,
-    getLabelProps,
     getMenuProps,
     getInputProps,
     getComboboxProps,
@@ -85,25 +85,25 @@ export const Searchbox: React.FC<SearchboxProp> = ({items, initialSelectedItems 
             {...getInputProps(getDropdownProps({preventKeyAction: isOpen}))}
           />
           <ComboboxButton {...getToggleButtonProps()} aria-label={'toggle menu'}>
-            &#8595;
+            <ChevronDown />
           </ComboboxButton>
         </Combobox>
       </ComboboxWrapper>
-      <ul style={menuStyles} {...getMenuProps()}>
-        {isOpen && getFilteredItems(items).map((item, index) => {
-          return (
-            <li
-              style={
-                highlightedIndex === index ? {backgroundColor: '#bde4ff'} : {}
-              }
-              key={`${item.id}${index}`}
-              {...getItemProps({item, index})}
-            >
-              {item.name}
-            </li>
-          )
-          })}
-      </ul>
+      <div style={menuWrapperStyles} {...getMenuProps()}>
+        {isOpen && getFilteredItems(items).length > 0 && (
+          <Menu>
+            {getFilteredItems(items).map((item, index) => (
+              <MenuItem
+                data-focused={highlightedIndex === index ? true : undefined}  
+                key={`${item.id}${index}`}
+                {...getItemProps({item, index})}
+              >
+                {item.name}
+              </MenuItem>
+            ))}
+          </Menu>
+        )}
+      </div>
     </Wrapper>
   )
 }
@@ -118,8 +118,11 @@ const ComboboxWrapper = styled('div',{
   display: 'flex',
   width: '100%',
   flexWrap: 'nowrap',
-  height: 40,
-  paddingY: '$1'
+  paddingY: '$2',
+  boxShadow: '$smallest',
+  '&:focus-within': {
+    outline: '-webkit-focus-ring-color auto 1px'
+  }
 })
 
 const Combobox = styled('div',{
@@ -131,10 +134,16 @@ const Combobox = styled('div',{
 
 const ComboboxButton = styled('button',{
   flexGrow:0,
+  marginX: '$1',
+  backgroundColor: 'inherit',
+  border: 'none',
+  outline: 'none'
 })
 
 const ComboboxInput = styled('input',{
   flexGrow:1,
+  border: 'none',
+  outline: 'none'
 })
 
 const SelectedItem = styled('span', {
@@ -142,9 +151,10 @@ const SelectedItem = styled('span', {
   paddingX: '$2',
   alignItems: 'center',
   marginLeft: '$2',
-  backgroundColor: 'aliceblue',
+  backgroundColor: '$surface',
   borderRadius: 4,
   flexGrow:0,
+  outline: 'none'
 })
 
 const SelectedItemIcon = styled('span',{
@@ -152,17 +162,40 @@ const SelectedItemIcon = styled('span',{
   marginLeft: '$1',
 })
 
-const menuStyles = {
-  maxHeight: '180px',
+const Menu = styled('ul',{
+  maxHeight: 240,
   overflowY: 'auto',
-  width: '135px',
+  width: '100%',
+  background: 'inherit',
+  listStyle: 'none',
+  padding: 0,
+  boxShadow: '$smallest',
+  paddingY: '$2',
+})
+
+const MenuItem = styled('li',{
+  display: 'flex',
+  paddingY: '$3',
+  paddingX: '$6',
+  color: 'inherit',
+  textDecoration: 'inherit',
+  '&[data-focused]':{
+    backgroundColor: '$surface'
+  },
+  '&:focus': {
+    outline: 'none',
+    border: 'none'
+  }
+})
+
+
+const menuWrapperStyles = {
   margin: 0,
   borderTop: 0,
-  background: 'white',
   position: 'absolute',
-  top: 40,
+  top: 60,
   left: 0,
+  right: 0,
   zIndex: 1000,
-  listStyle: 'none',
   padding: 0,
 }
