@@ -1,8 +1,0 @@
-{
-  "build": {
-    "env": {
-      "NEXT_PUBLIC_CONTENTFUL_SPACE_ID": "zxkqjd6n1f51",
-      "NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN": "JHMSVcqmloGt7B0nqTO6UIsAzkv14RGh6IYXkwFeGP4"
-    }
-  }
-}
