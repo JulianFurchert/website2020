@@ -3,12 +3,14 @@ import Link from 'next/link'
 import { styled } from '../stitches.config'
 import { motion, AnimationControls } from "framer-motion"
 import { Cursor, CursorVariants } from "./Cursor"
+import { Text } from "./Text"
 
 export type ThumbnailProps = CssProps & {
   mouseAnimation?: AnimationControls,
   mouseVariant?: CursorVariants,
   withoutMouse?: boolean,
   url?: string,
+  name?: string,
 }
 
 export const Thumbnail: React.FC<ThumbnailProps> = ({
@@ -17,11 +19,15 @@ export const Thumbnail: React.FC<ThumbnailProps> = ({
   withoutMouse,
   url = '/',
   css,
+  name,
   children
 }) => {
   return (
-    // <Link href={url} passHref>
-      <Container css={css} whileHover="hover">
+    <Link href={url} passHref>
+      <Container 
+        css={css}
+        whileHover={{ y: -10 }}
+      >
         {children}
         {!withoutMouse && mouseAnimation && (
           <motion.div
@@ -38,8 +44,11 @@ export const Thumbnail: React.FC<ThumbnailProps> = ({
             <Cursor variant={mouseVariant} />
           </motion.div>
         )}
+        <Text variant="body" css={{marginTop: '$2'}}>
+          {name}
+        </Text>
       </Container>
-    // </Link>
+    </Link>
   )
 }
 
@@ -54,7 +63,7 @@ export const Container = styled(motion.a, {
   color: 'black',
   height: '100%',
   width: '100%',
-  transition: 'color 0.15s ease, border-color 0.15s ease',
+  cursor: 'pointer'
 })
 
 export const circleIndex = (i: number) => i < 2 ? i + 1 : 0

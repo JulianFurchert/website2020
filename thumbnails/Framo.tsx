@@ -3,6 +3,7 @@ import { useAnimation, motion } from "framer-motion"
 import { Thumbnail, Svg, circleIndex, outsidePosition } from "../components"
 import { CursorVariants } from "../components/Cursor"
 import { CssProps } from "../components/Thumbnail"
+import { Box } from "../components"
 
 const mousePosition = [
   {
@@ -126,31 +127,40 @@ const ThumbnailAnimation: React.FC<CssProps> = props => {
     <Thumbnail
       mouseAnimation={mouse}
       mouseVariant={cursor}
+      name="Framo - Logo Tool"
+      url='/projects/framo'
       {...props}
     >
-      <Svg viewBox="0 0 640 420" width="100%">
-        <motion.path 
-          d={data[2].path1}
-          animate={path1}
-          strokeWidth={8} 
-          stroke="currentColor" 
-          fill="none"
-        />
-        <motion.path 
-          d={data[2].path2}
-          animate={path2}
-          strokeWidth={8} 
-          stroke="currentColor" 
-          fill="none"
-        />
-        <motion.path 
-          d={data[2].background}
-          animate={area} 
-          fill="currentColor" 
-          fillOpacity="0.1"
-          stroke="none"
-        />
-      </Svg>
+      <Box
+        css={{
+          border: '2px solid',
+          borderColor: '$text'
+        }}
+      >
+        <Svg viewBox="0 0 640 420" width="100%">
+          <motion.path 
+            d={data[2].path1}
+            animate={path1}
+            strokeWidth={8} 
+            stroke="currentColor" 
+            fill="none"
+          />
+          <motion.path 
+            d={data[2].path2}
+            animate={path2}
+            strokeWidth={8} 
+            stroke="currentColor" 
+            fill="none"
+          />
+          <motion.path 
+            d={data[2].background}
+            animate={area} 
+            fill="currentColor" 
+            fillOpacity="0.1"
+            stroke="none"
+          />
+        </Svg>
+      </Box>
     </Thumbnail>
   )
 }

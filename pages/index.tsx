@@ -10,17 +10,37 @@ const Framo = dynamic( () => import('../thumbnails/Framo'), { ssr: false } )
 export default function Home() {
   return (
     <Container>
-      <Box>
-        <Flex css={{ justifyContent: 'space-between'}}>
+      <Box css={{marginBottom: 160}}>
+        <Flex 
+          css={{ 
+            justifyContent: 'space-between'
+          }}
+        >
           {/* <TypeScanner css={{maxWidth: '40%'}} /> */}
-          <PrettyPaper css={{maxWidth: '40%'}} />
+          <PrettyPaper 
+            css={{
+              maxWidth: '40%'
+            }} 
+          />
         </Flex >
-        <Flex css={{ justifyContent: 'center' }} >
-          {/* <ReproFont css={{maxWidth: '40%'}} /> */}
-        </Flex>
-        <Flex css={{ justifyContent: 'space-between', marginTop: '$4'}}>
-          <Seading css={{maxWidth: '40%'}} />
-          {/* <Framo /> */}
+        <Flex 
+          css={{ 
+            justifyContent: 'space-between', 
+            marginTop: 200
+          }}>
+          <Seading 
+            css={{
+              bp2: { maxWidth: '40%' }
+            }} 
+          />
+          <Framo 
+            css={{ 
+              bp2: {
+                marginTop: '20vw',
+                maxWidth: '40%',
+              }
+            }} 
+          />
         </Flex>
       </Box>
     </Container>
