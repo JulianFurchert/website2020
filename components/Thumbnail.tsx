@@ -26,7 +26,7 @@ export const Thumbnail: React.FC<ThumbnailProps> = ({
     <Link href={url} passHref>
       <Container 
         css={css}
-        whileHover={{ y: -10 }}
+        // whileHover={{ y: -10 }}
       >
         {children}
         {!withoutMouse && mouseAnimation && (
