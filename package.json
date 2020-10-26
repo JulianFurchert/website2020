@@ -16,6 +16,7 @@
     "@react-types/shared": "^3.2.0",
     "@stitches/react": "0.0.1",
     "@styled-system/theme-get": "^5.1.2",
+    "bezier-js": "^3.0.1",
     "cloudinary-react": "^1.6.7",
     "contentful": "^7.14.8",
     "d3-scale": "^3.2.3",
@@ -32,6 +33,7 @@
     "starwars-names": "^1.6.0",
     "styled-components": "^5.2.0",
     "styled-system": "^5.1.5",
+    "svg-path-properties": "^1.0.9",
     "typed.js": "^2.0.11",
     "use-dark-mode": "^2.3.1"
   },

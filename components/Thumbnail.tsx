@@ -5,8 +5,8 @@ import { motion, AnimationControls } from "framer-motion"
 import { Cursor, CursorVariants } from "./Cursor"
 
 export type ThumbnailProps = CssProps & {
-  mouseAnimation: AnimationControls,
-  mouseVariant: CursorVariants,
+  mouseAnimation?: AnimationControls,
+  mouseVariant?: CursorVariants,
   withoutMouse?: boolean,
   url?: string,
 }
@@ -23,7 +23,7 @@ export const Thumbnail: React.FC<ThumbnailProps> = ({
     // <Link href={url} passHref>
       <Container css={css} whileHover="hover">
         {children}
-        {!withoutMouse && (
+        {!withoutMouse && mouseAnimation && (
           <motion.div
             transition={{ duration: 1 }}
             animate={mouseAnimation} 

@@ -11,25 +11,17 @@ export default function Home() {
   return (
     <Container>
       <Box>
-        <Flex 
-          css={{
-            justifyContent: 'space-between'
-          }}
-        >
-          <TypeScanner css={{maxWidth: '40%'}} />
+        <Flex css={{ justifyContent: 'space-between'}}>
+          {/* <TypeScanner css={{maxWidth: '40%'}} /> */}
           <PrettyPaper css={{maxWidth: '40%'}} />
         </Flex >
-        <Flex 
-          css={{
-            justifyContent: 'center'
-            }}
-          >
-          <ReproFont css={{maxWidth: '40%'}} />
+        <Flex css={{ justifyContent: 'center' }} >
+          {/* <ReproFont css={{maxWidth: '40%'}} /> */}
         </Flex>
-        {/* <Flex>
-          <Seading />
-          <Framo />
-        </Flex> */}
+        <Flex css={{ justifyContent: 'space-between', marginTop: '$4'}}>
+          <Seading css={{maxWidth: '40%'}} />
+          {/* <Framo /> */}
+        </Flex>
       </Box>
     </Container>
   )
