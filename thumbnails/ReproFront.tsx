@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { Thumbnail, circleIndex, outsidePosition } from "../components"
 import { CursorVariants } from "../components/Cursor"
+import { CssProps } from "../components/Thumbnail"
 
 const transition = {
   x: { type: "spring",  damping: 13 },
@@ -21,7 +22,7 @@ const variants = {
   }
 }
 
-const ThumbnailAnimation: React.FC = () => {
+const ThumbnailAnimation: React.FC<CssProps> = props => {
   const [index, setIndex] = useState(0);
   const [imageIndex, setImageIndex] = useState(0);
   const [cursor, setCursor] = useState<CursorVariants>('grab');
@@ -64,6 +65,7 @@ const ThumbnailAnimation: React.FC = () => {
     <Thumbnail
       mouseAnimation={mouse}
       mouseVariant={cursor}
+      {...props}
     >
       <AnimatePresence initial={false}>
         <motion.div

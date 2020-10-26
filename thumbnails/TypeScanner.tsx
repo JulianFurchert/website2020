@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from "framer-motion"
 import { Thumbnail, circleIndex, outsidePosition } from "../components"
+import { CssProps } from "../components/Thumbnail"
 
-const Animation: React.FC = () => {
+const Animation: React.FC<CssProps> = props => {
   const [index, setIndex] = useState(0);
   const [gridIndex, setGridIndex] = useState(0);
   const mouse = useAnimation();
@@ -30,6 +31,7 @@ const Animation: React.FC = () => {
     <Thumbnail
       mouseAnimation={mouse}
       mouseVariant={index > 1 ? 'zoom-out' : 'zoom-in'}
+      {...props}
     >
       <svg viewBox="0 0 640 420" width="100%">
         {gridIndex === 0 && <GridGroup1 />}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAnimation, motion } from "framer-motion"
 import { Thumbnail, Svg, circleIndex, outsidePosition } from "../components"
 import { CursorVariants } from "../components/Cursor"
+import { CssProps } from "../components/Thumbnail"
 
 const mousePosition = [
   {
@@ -51,7 +52,7 @@ const areaPosition = [
   },
 ]
 
-const ThumbnailAnimation: React.FC = () => {
+const ThumbnailAnimation: React.FC<CssProps> = props => {
   const [index, setIndex] = useState(0);
   const mouse = useAnimation();
   const area = useAnimation();
@@ -125,6 +126,7 @@ const ThumbnailAnimation: React.FC = () => {
     <Thumbnail
       mouseAnimation={mouse}
       mouseVariant={cursor}
+      {...props}
     >
       <Svg viewBox="0 0 640 420" width="100%">
         <motion.path 

@@ -1,52 +1,36 @@
-import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import Grid from '../components/Grid'
-import Card from '../components/Card'
-import Container from '../components/Container'
+import {Container, Box, Flex} from '../components'
 
 import TypeScanner from '../thumbnails/TypeScanner'
-// import Framo from '../thumbnails/Framo'
-import Denkwerk from '../thumbnails/Denkwerk'
 import PrettyPaper from '../thumbnails/PrettyPaper'
-import Theves from '../thumbnails/Theves'
 import ReproFont from '../thumbnails/ReproFront'
+import Seading from '../thumbnails/Seading'
 const Framo = dynamic( () => import('../thumbnails/Framo'), { ssr: false } )
 
 export default function Home() {
   return (
     <Container>
-      <Grid size="large">
-        <Link href="/projects/framo" passHref>
-          <Card as="a" variant="preview">
-            <Framo />
-          </Card>
-        </Link>
-        <Link href="/projects/denkwerk" passHref>
-          <Card as="a" variant="preview">
-            <Denkwerk />
-          </Card>
-        </Link>
-        <Link href="/projects/typescanner" passHref>
-          <Card as="a" variant="preview">
-            <TypeScanner />
-          </Card>
-        </Link>
-        <Link href="/projects/prettypaper" passHref>
-          <Card as="a" variant="preview">
-            {/* <Theves /> */}
-          </Card>
-        </Link>
-        <Link href="/projects/theves" passHref>
-          <Card as="a" variant="preview">
-            <TypeScanner />
-          </Card>
-        </Link>
-        <Link href="/projects/reprofont" passHref>
-          <Card as="a" variant="preview">
-            <ReproFont />
-          </Card>
-        </Link>
-      </Grid>
+      <Box>
+        <Flex 
+          css={{
+            justifyContent: 'space-between'
+          }}
+        >
+          <TypeScanner css={{maxWidth: '40%'}} />
+          <PrettyPaper css={{maxWidth: '40%'}} />
+        </Flex >
+        <Flex 
+          css={{
+            justifyContent: 'center'
+            }}
+          >
+          <ReproFont css={{maxWidth: '40%'}} />
+        </Flex>
+        {/* <Flex>
+          <Seading />
+          <Framo />
+        </Flex> */}
+      </Box>
     </Container>
   )
 }

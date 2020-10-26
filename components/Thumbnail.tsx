@@ -1,45 +1,54 @@
 import React from 'react';
+import Link from 'next/link'
 import { styled } from '../stitches.config'
 import { motion, AnimationControls } from "framer-motion"
 import { Cursor, CursorVariants } from "./Cursor"
 
-type ThumbnailProps = {
+export type ThumbnailProps = CssProps & {
   mouseAnimation: AnimationControls,
   mouseVariant: CursorVariants,
   withoutMouse?: boolean,
+  url?: string,
 }
 
 export const Thumbnail: React.FC<ThumbnailProps> = ({
   mouseAnimation,
   mouseVariant,
   withoutMouse,
+  url = '/',
+  css,
   children
 }) => {
   return (
-    <Container whileHover="hover">
-      {children}
-      {!withoutMouse && (
-        <motion.div
-          transition={{ duration: 1 }}
-          animate={mouseAnimation} 
-          style={{
-            top: '-200%',
-            left: '-200%',
-            zIndex: 100, 
-            position: 'absolute',
-            transform: 'translate(-50%, -50%)'
-          }}
-        >
-          <Cursor variant={mouseVariant} />
-        </motion.div>
-      )}
-    </Container>
+    // <Link href={url} passHref>
+      <Container css={css} whileHover="hover">
+        {children}
+        {!withoutMouse && (
+          <motion.div
+            transition={{ duration: 1 }}
+            animate={mouseAnimation} 
+            style={{
+              top: '-200%',
+              left: '-200%',
+              zIndex: 100, 
+              position: 'absolute',
+              transform: 'translate(-50%, -50%)'
+            }}
+          >
+            <Cursor variant={mouseVariant} />
+          </motion.div>
+        )}
+      </Container>
+    // </Link>
   )
 }
 
 export default Thumbnail
 
-export const Container = styled(motion.div, {
+export type CssProps = { css?: React.ComponentProps<typeof Container>['css']}
+
+export const Container = styled(motion.a, {
+  display: 'block',
   position: 'relative',
   overflow: 'hidden',
   color: 'black',

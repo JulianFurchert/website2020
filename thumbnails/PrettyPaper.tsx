@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useAnimation } from "framer-motion"
-import { Thumbnail } from "../components"
+import { Thumbnail, Svg } from "../components"
+import { CssProps } from "../components/Thumbnail"
 
-const Animation: React.FC = () => {
+const Animation: React.FC<CssProps> = props => {
   const [index, setIndex] = useState(0);
   const mouse = useAnimation();
 
@@ -19,7 +20,11 @@ const Animation: React.FC = () => {
     <Thumbnail
       mouseAnimation={mouse}
       mouseVariant="pointer"
+      {...props}
     >
+      <Svg viewBox="0 0 640 420" width="100%">
+        <path></path>
+      </Svg>
     </Thumbnail>
   )
 }

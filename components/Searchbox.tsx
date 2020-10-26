@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { styled } from '../stitches.config'
 import { ChevronDown } from 'react-feather'
 import { useCombobox, useMultipleSelection } from 'downshift'
+import { Tag } from './Tag'
 
 type Item = {
   name: string,
@@ -68,17 +69,12 @@ export const Searchbox: React.FC<SearchboxProp> = ({items, initialSelectedItems 
     <Wrapper>
       <ComboboxWrapper>
         {selectedItems.map((selectedItem, index) => (
-          <SelectedItem 
+          <Tag 
             key={`selected-item-${index}`}
+            name={selectedItem.name}
+            onDelete={() => removeSelectedItem(selectedItem)}
             {...getSelectedItemProps({selectedItem, index})}
-          >
-            {selectedItem.name}
-            <SelectedItemIcon
-              onClick={() => removeSelectedItem(selectedItem)}
-            >
-              &#10005;
-            </SelectedItemIcon>
-          </SelectedItem>
+          />
         ))}
         <Combobox {...getComboboxProps()}>
           <ComboboxInput
@@ -119,9 +115,12 @@ const ComboboxWrapper = styled('div',{
   width: '100%',
   flexWrap: 'nowrap',
   paddingY: '$2',
-  boxShadow: '$smallest',
+  backgroundColor: 'inherit',
+  border: '1px solid',
+  borderColor: '#c2c2c2',
+  borderRadius: 10,
   '&:focus-within': {
-    outline: '-webkit-focus-ring-color auto 1px'
+    borderColor: '$text'
   }
 })
 
@@ -143,23 +142,8 @@ const ComboboxButton = styled('button',{
 const ComboboxInput = styled('input',{
   flexGrow:1,
   border: 'none',
-  outline: 'none'
-})
-
-const SelectedItem = styled('span', {
-  display: 'flex',
-  paddingX: '$2',
-  alignItems: 'center',
-  marginLeft: '$2',
-  backgroundColor: '$surface',
-  borderRadius: 4,
-  flexGrow:0,
-  outline: 'none'
-})
-
-const SelectedItemIcon = styled('span',{
-  cursor: 'pointer',
-  marginLeft: '$1',
+  outline: 'none',
+  backgroundColor: 'inherit'
 })
 
 const Menu = styled('ul',{
@@ -169,8 +153,10 @@ const Menu = styled('ul',{
   background: 'inherit',
   listStyle: 'none',
   padding: 0,
-  boxShadow: '$smallest',
+  boxShadow: '$large',
   paddingY: '$2',
+  zIndex: 1000,
+  backgroundColor: '$background',
 })
 
 const MenuItem = styled('li',{
