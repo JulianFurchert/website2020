@@ -23,10 +23,22 @@ export default function Home() {
             }} 
           />
         </Flex >
+        <Flex
+          css={{ 
+            justifyContent: 'center'
+          }}
+        >
+          <ReproFont 
+            css={{
+              marginTop: 160,
+              maxWidth: '50%'
+            }} 
+          />
+        </Flex>
         <Flex 
           css={{ 
-            justifyContent: 'space-between', 
-            marginTop: 200
+            marginTop: 160,
+            justifyContent: 'space-between'
           }}>
           <Seading 
             css={{
