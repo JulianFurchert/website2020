@@ -23,48 +23,48 @@ const variants = {
 }
 
 const ThumbnailAnimation: React.FC<CssProps> = props => {
-  const [index, setIndex] = useState(0);
-  const [imageIndex, setImageIndex] = useState(0);
-  const [cursor, setCursor] = useState<CursorVariants>('grab');
-  const mouse = useAnimation();
+  // const [index, setIndex] = useState(0);
+  // const [imageIndex, setImageIndex] = useState(0);
+  // const [cursor, setCursor] = useState<CursorVariants>('grab');
+  // const mouse = useAnimation();
 
-  useEffect(() => {
-    const sequence = async () => {
-      mouse.set(outsidePosition())
-      await mouse.start({
-        top: '50%',
-        left: '60%',
-        transition: {
-          delay: 2,
-          duration: 1,
-        }
-      })
-      setCursor('grabbing')
-      await mouse.start({
-        top: '50%',
-        left: '25%',
-        transition: {
-          duration: 1,
-        }
-      })
-      setCursor('grab')
-      setImageIndex(circleIndex)
-      await mouse.start({
-        top: '70%',
-        left: '-50%',
-        transition: {
-          duration: 1,
-        }
-      })
-      setIndex(circleIndex)
-    }
-    sequence()
-  }, [index])
+  // useEffect(() => {
+  //   const sequence = async () => {
+  //     mouse.set(outsidePosition())
+  //     await mouse.start({
+  //       top: '50%',
+  //       left: '60%',
+  //       transition: {
+  //         delay: 2,
+  //         duration: 1,
+  //       }
+  //     })
+  //     setCursor('grabbing')
+  //     await mouse.start({
+  //       top: '50%',
+  //       left: '25%',
+  //       transition: {
+  //         duration: 1,
+  //       }
+  //     })
+  //     setCursor('grab')
+  //     setImageIndex(circleIndex)
+  //     await mouse.start({
+  //       top: '70%',
+  //       left: '-50%',
+  //       transition: {
+  //         duration: 1,
+  //       }
+  //     })
+  //     setIndex(circleIndex)
+  //   }
+  //   sequence()
+  // }, [index])
 
   return(
     <Thumbnail
-      mouseAnimation={mouse}
-      mouseVariant={cursor}
+      // mouseAnimation={mouse}
+      // mouseVariant={cursor}
       name="Repro Front - Typeface"
       url='/projects/reprofont'
       {...props}
